@@ -1,5 +1,4 @@
 import "../firebase/config-firebase"
-import { createUserWithEmailAndPassword }
 
 export default () => {
   const container = document.createElement('div');
