@@ -23,20 +23,25 @@ export default () => {
 
   container.innerHTML = template;
 
-  const name = container.querySelector("#name");
+  /*const name = container.querySelector("#name");
   const email = container.querySelector("#email");
   const password = container.querySelector("#senha");
-  const checkPassword = container.querySelector("#checkSenha");
+  const checkPassword = container.querySelector("#checkSenha");*/
 
-  container.addEventListener("submit", (e) => {
+  /*container.addEventListener("submit", (e) => {
     e.preventDefault();
 
-  })
+  })*/
 
   function emailBlockingButton() {
-    const emailError = container.querySelector("#emailRequireError").value
-    if (!emailError) {
-      document.querySelector("#emailRequireError").style.display = "block"
+    const email = container.querySelector("#email").value
+    if (!email) {
+      document.querySelector("#emailRequireError").disabled = true
+    }else if (validateEmail(email)){
+      document.querySelector("#emailRequireError").disabled = false
+    }
+    else{
+      document.querySelector("#emailRequireError").disabled = true
     }
   }
   emailBlockingButton()
