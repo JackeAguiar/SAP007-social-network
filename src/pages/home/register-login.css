@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}  
+main{
+    display: flex;
+}
+
+.inputs-log{
+    background: transparent;
+    border-bottom: 1px solid #FA0000;
+    width: 90%;
+    height: 12%;
+    margin-left: 5%;
+    color: white;
+}
+
+.containerLogin, .containerRegister{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+label{
+    display: flex;
+    align-self: flex-start;
+    margin-left: 8%;
+    padding: 1%;
+}
+
+.button-login, 
+.button-register, 
+.button-register-cas,
+.button-register-lo{
+    margin-top: 5%;
+    align-self: center;
+}
+
+.button-login{
+    height: 28%;
+    width: 50%;
+}
+
+ .button-register{
+    height: 28%;
+    width: 50%;
+}
+
+.button-register-lo{
+    height: 28%;
+    width: 50%;
+}
+
+
+.button-register-cas{
+    height: 15%;
+    width: 30%;
+    
+}

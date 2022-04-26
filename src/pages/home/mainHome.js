@@ -31,8 +31,8 @@ export default () => {
     <a href="/#login" class="btn">
     <button class="botaoLogIn" id="botaoLogIn" href="/#login">Log-in</button>
     </a>
-    <a href="/#cadastro" class="btn">
-    <button class="botaoCadastro" id="botaoCadastro">Cadastre-se</button>
+    <a href="/#register" class="btn">
+    <button class="button-register" id="buttonRegister">Cadastre-se</button>
     </a>
   </div>
   `;
