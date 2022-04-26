@@ -1,7 +1,7 @@
-import "./pages/firebase/config-firebase.js";
+// import "./pages/firebase/config-firebase.js";
 import login from "./pages/home/login.js";
-import cadastro from "./pages/home/cadastro.js";
 import home from "./pages/home/mainHome.js";
+import register from "./pages/home/register.js";
 
 const main = document.querySelector("#main")
 
@@ -11,8 +11,8 @@ const init = () => {
             case "#login":
                 main.appendChild(login());
                 break;
-            case "#cadastro":
-                main.appendChild(cadastro());
+            case "#register":
+                main.appendChild(register());
                 break;
             default:
                 main.appendChild(home());
