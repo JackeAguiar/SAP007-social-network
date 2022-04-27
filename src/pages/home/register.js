@@ -1,4 +1,4 @@
-// import "../firebase/config-firebase"
+import {userRegister} from "../firebase/auth-firebase.js";
 
 export default () => {
   const container = document.createElement('div');
@@ -18,22 +18,28 @@ export default () => {
   <label for="check-Senha">Confirmar senha:</label>
   <input type="password" id="checkPassword" class="inputs-log" placeholder="Digite novamente sua senha" required></input>
   
+<<<<<<< HEAD
   <button class="button-register-cas" id="buttonRegister" disabled="disabled" type="button">Cadastrar</button>
+=======
+  <button class="button-register-cas" id="buttonRegister" >Cadastrar</button>
+>>>>>>> 4d5f0fbaf2b4130ea593b829fd4d869587a1eb33
   </form>
   `;
 
   container.innerHTML = template;
 
   // const name = container.querySelector("#name");
-  // const email = container.querySelector("#email");
-  // const password = container.querySelector("#senha");
+  const email = container.querySelector("#emailRegister");
+  const password = container.querySelector("#password");
   // const checkPassword = container.querySelector("#checkSenha");*/
 
-  // container.addEventListener("submit", (e) => {
-  //   e.preventDefault();
+  container.addEventListener("submit", (e) => {
+    e.preventDefault();
+    userRegister(email.value, password.value);
 
-  // })
+  })
 
+<<<<<<< HEAD
   const inputs = container.querySelector("#emailRegister");
   const button = container.querySelector("#buttonRegister");
   const email = container.querySelector("#emailRegister");
@@ -91,6 +97,29 @@ export default () => {
   // }
 
    
+=======
+
+
+
+
+//   function emailBlockingButton() {
+//     const email = container.querySelector("#emailRegister").value
+//     if (!email) {
+//       document.querySelector("#buttonRegister").disabled = true
+//     }else if (validateEmail(email)){
+//       document.querySelector("#buttonRegister").disabled = false
+//     }
+//     else{
+//       document.querySelector("#buttonRegister").disabled = true
+//     }
+//   }
+//   emailBlockingButton()
+
+//   function validateEmail(email) {
+//     var re = /\S+@\S+\.\S+/;
+//     return re.test(email);
+//   }
+>>>>>>> 4d5f0fbaf2b4130ea593b829fd4d869587a1eb33
 
   return container;
 };
