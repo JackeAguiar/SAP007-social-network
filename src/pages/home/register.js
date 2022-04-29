@@ -7,7 +7,7 @@ export default () => {
   container.classList.add('containerRegister');
 
   const template = `
-  <form>
+  <form class="formRegister">
   <label for="nome">Nome:</label>
   <input type="text" id="name" class="inputs-log" placeholder="Nome de usuário" required></input>
   <label for="e-mail">E-mail:</label>
@@ -17,7 +17,7 @@ export default () => {
   <label for="check-Senha">Confirmar senha:</label>
   <input type="password" id="checkPassword" class="inputs-log" placeholder="Digite novamente sua senha" required></input>
   <p id="erro"></p>
-  <a href="/#feed">
+  <a href="#feed">
   <button class="button-register-cas" id="buttonRegister" >Cadastrar</button>
   </a>
   </form>
