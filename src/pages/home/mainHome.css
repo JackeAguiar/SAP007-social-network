@@ -200,14 +200,14 @@
         grid-column: 1/2;
         grid-row: span 3;
         align-self: flex-start;
-        height: 50vh;
+        height: 55vh;
         width: 320px;
         margin: auto;
     }
 
     .carrosel ul{
         width: 1600px;
-        height: 50vh;
+        height: 55vh;
     }
 
     @keyframes slide{
@@ -226,7 +226,7 @@
 
     .carrosel img{
         width: 320px;
-        height: 50vh;
+        height: 55vh;
     }
 
     .enter {
@@ -236,6 +236,37 @@
 
     .enter button{
         font-size: 100%;
+    }
+}
+
+@media (min-device-width:1500px){
+    .carrosel{
+        width: 420px;
+        
+    }
+
+    .carrosel ul{
+        width: 2100px;
+        height: 55vh;
+    }
+
+    @keyframes slide{
+        0% {left:0px}
+        15%{left: 0px}
+        20%{left: -420px}
+        35%{left: -420px}
+        40%{left: -840px}
+        55%{left: -840px}
+        60%{left: -1260px}
+        75%{left: -1260px}
+        80%{left: -1680px}
+        95%{left: -1680px}
+        100%{left: 0px}
+    }
+
+    .carrosel img{
+        width: 420px;
+        height: 55vh;
     }
 }
     

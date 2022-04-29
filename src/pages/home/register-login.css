@@ -30,6 +30,10 @@ label{
     padding: 1%;
 }
 
+#buttonRegister:disabled{
+    opacity: 0.7;
+}
+
 .button-login, 
 .button-register, 
 .button-register-cas,
