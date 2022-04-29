@@ -28,10 +28,10 @@ export default () => {
   </div>
   </div>
   <div id="enter" class="enter">
-    <a href="/#login" class="btn">
+    <a href="#login" class="btn">
     <button class="botaoLogIn" id="botaoLogIn" href="/#login">Log-in</button>
     </a>
-    <a href="/#register" class="btn">
+    <a href="#register" class="btn">
     <button class="button-register" id="buttonRegister">Cadastre-se</button>
     </a>
   </div>

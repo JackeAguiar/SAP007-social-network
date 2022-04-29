@@ -8,22 +8,23 @@ export default () => {
   container.classList.add('containerLogin');
 
   const templateLogin = `
-       <form>
+       <form class="formLogIn">
       <label for="email">Email:</label>
       <input type="email" placeholder="exemple@gmail.com" id="emailLogin" class="email inputs-log" required></input>
     
       <label for="password">Senha:</label>
       <input type="password" placeholder="Digite uma senha de 6 a 8 digitos" maxlength="8" id="password" class="password inputs-log" required></input>
       <p id="erro"></p>
-      <a href="/#feed">
+      <a href="#feed">
       <button class="button-login" id="buttonLogin">Log-In</button>
       </a>
-      <a href="/#feed">
-      <button class="google" id="google">GOOGLE</button>
+      <a href="#feed" class="linkGoogle">
+      <button class="google" id="google">Ou click aqui e faça seu Log-In com<img alt="Google sign-in" 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png" class="btnGoogleImg"/></button>
       </a>
       </form>
       
-       <a href="/#register">
+       <a href="#register" class="linkRegister">
        <button class="button-register-lo" id="buttonRegister">Cadastrar-se</button>
        </a>
     `;
