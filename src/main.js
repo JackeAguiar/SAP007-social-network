@@ -3,6 +3,7 @@ import login from "./pages/home/login.js";
 import home from "./pages/home/mainHome.js";
 import register from "./pages/home/register.js";
 import feed from "./pages/home/feed.js"
+import postMobile from "./pages/home/postMobile.js";
 
 const main = document.querySelector("#main")
 
@@ -17,6 +18,9 @@ const init = () => {
             break;
         case "#feed":
             main.appendChild(feed());
+            break
+        case "#postMobile":
+            main.appendChild(postMobile());
             break
         default:
             main.appendChild(home());

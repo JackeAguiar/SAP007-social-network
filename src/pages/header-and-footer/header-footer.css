@@ -29,12 +29,20 @@ header img{
 }
 
 
-.link-header {
+.linkHeader {
     font-size: 30px;
     font-family: 'Cinzel Decorative';
     align-self: center;
     justify-self: center;
 }
+
+/*.menuFeed{
+    display: none;
+}
+
+.btnMobile{
+    display: none;
+}*/
 
 header a{
     display: grid;
@@ -68,8 +76,24 @@ a{
         grid-template-rows: 15% 80% 5%;
     }
 
-    .link-header{
+    .linkHeader{
         font-size: 50px ;
+    }
+
+    .btnMobile{
+        display: block
+    }
+
+    .menuFeed{
+        /*display: none;*/
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+    }
+
+    .nav:active .menuFeed{
+        display: flex;
     }
 
     footer{
