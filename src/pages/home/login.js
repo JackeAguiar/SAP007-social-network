@@ -20,7 +20,7 @@ export default () => {
       </a>
       <a href="#feed" class="linkGoogle">
       <button class="google" id="google">Ou click aqui e faça seu Log-In com<img alt="Google sign-in" 
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png" class="btnGoogleImg"/></button>
+      src="pages/img/googleG.webp" class="btnGoogleImg"/></button>
       </a>
       </form>
       
