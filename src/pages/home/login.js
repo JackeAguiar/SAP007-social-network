@@ -1,7 +1,7 @@
 import {
   userLogIn,
-  googleLogIn
-} from "../firebase/auth-firebase.js";
+  googleLogIn,
+} from '../firebase/auth-firebase.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -30,50 +30,49 @@ export default () => {
     `;
   container.innerHTML = templateLogin;
 
-  const email = container.querySelector("#emailLogin")
-  const password = container.querySelector("#password")
-  const erroMsg = container.querySelector("#erro")
-  const btnGoogle = container.querySelector("#google")
+  const email = container.querySelector('#emailLogin');
+  const password = container.querySelector('#password');
+  const erroMsg = container.querySelector('#erro');
+  const btnGoogle = container.querySelector('#google');
 
-  container.addEventListener("submit", (e) => {
+  container.addEventListener('submit', (e) => {
     e.preventDefault();
     userLogIn(email.value, password.value)
       .then(() => {
-        window.location.hash = "#feed"
+        window.location.hash = '#feed';
       })
       .catch((error) => {
         const errorCode = error.code;
-        erroMsg.classList.add("error")
+        erroMsg.classList.add('error');
         switch (errorCode) {
-          case "auth/user-not-found":
-            erroMsg.innerHTML = "Email não cadastrado"
+          case 'auth/user-not-found':
+            erroMsg.innerHTML = 'Email não cadastrado';
             break;
-          case "auth/wrong-password":
-            erroMsg.innerHTML = "Senha incorreta"
-            break
+          case 'auth/wrong-password':
+            erroMsg.innerHTML = 'Senha incorreta';
+            break;
           default:
-            erroMsg.innerHTML = "Não foi possível realizar o log-in"
+            erroMsg.innerHTML = 'Não foi possível realizar o log-in';
         }
         const errorMessage = error.message;
-        return errorMessage
+        return errorMessage;
       });
-  })
+  });
 
-  btnGoogle.addEventListener("click", (e) => {
+  btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     googleLogIn()
       .then(() => {
-        window.location.hash = "#feed";
+        window.location.hash = '#feed';
       })
       .catch((error) => {
         // const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage)
         // const email = error.email;
         // const credential = GoogleAuthProvider.credentialFromError(error);
-        return errorMessage
+        return errorMessage;
       });
-  })
+  });
 
   return container;
 };
