@@ -42,7 +42,7 @@ header .btnMobile{
 }
 
 .menuFeed{
-    display: none;
+    /*display: none;*/
     position: absolute;
     width: 100%;
     top: 70px;
