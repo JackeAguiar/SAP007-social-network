@@ -1,4 +1,4 @@
-import "./pages/firebase/config-firebase.js";
+import "./firebase/config-firebase.js";
 import login from "./pages/home/login.js";
 import home from "./pages/home/mainHome.js";
 import register from "./pages/home/register.js";
