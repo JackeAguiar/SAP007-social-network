@@ -1,9 +1,9 @@
-import './pages/firebase/config-firebase.js';
-import login from './pages/home/login.js';
-import home from './pages/home/mainHome.js';
-import register from './pages/home/register.js';
-import feed from './pages/home/feed.js';
-import postMobile from './pages/home/postMobile.js';
+import "./firebase/config-firebase.js";
+import login from "./pages/home/login.js";
+import home from "./pages/home/mainHome.js";
+import register from "./pages/home/register.js";
+import feed from "./pages/home/feed.js"
+import postMobile from "./pages/home/postMobile.js";
 
 const main = document.querySelector('#main');
 
