@@ -27,9 +27,10 @@ export default () => {
        <a href="#register" class="linkRegister">
        <button class="button-register-lo" id="buttonRegister">Cadastrar-se</button>
        </a>
-    `;
+       `;
   container.innerHTML = templateLogin;
 
+  const btnMenu = document.getElementById("btnMobile")
   const email = container.querySelector("#emailLogin")
   const password = container.querySelector("#password")
   const erroMsg = container.querySelector("#erro")
@@ -40,6 +41,7 @@ export default () => {
     userLogIn(email.value, password.value)
       .then(() => {
         window.location.hash = "#feed"
+        btnMenu.classList.remove("out")
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -64,6 +66,7 @@ export default () => {
     googleLogIn()
       .then(() => {
         window.location.hash = "#feed";
+        btnMenu.classList.remove("out")
       })
       .catch((error) => {
         // const errorCode = error.code;
