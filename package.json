@@ -16,7 +16,8 @@
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
     "start": "serve -s src/",
-    "deploy": "gh-pages -d src"
+    "deploy": "gh-pages -d src",
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

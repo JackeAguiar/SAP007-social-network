@@ -20,16 +20,17 @@ export default () => {
       </a>
       <a href="#feed" class="linkGoogle">
       <button class="google" id="google">Ou click aqui e faça seu Log-In com<img alt="Google sign-in" 
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png" class="btnGoogleImg"/></button>
+      src="pages/img/googleG.webp" class="btnGoogleImg"/></button>
       </a>
       </form>
       
        <a href="#register" class="linkRegister">
        <button class="button-register-lo" id="buttonRegister">Cadastrar-se</button>
        </a>
-    `;
+       `;
   container.innerHTML = templateLogin;
 
+  const btnMenu = document.getElementById("btnMobile")
   const email = container.querySelector("#emailLogin")
   const password = container.querySelector("#password")
   const erroMsg = container.querySelector("#erro")
@@ -40,6 +41,7 @@ export default () => {
     userLogIn(email.value, password.value)
       .then(() => {
         window.location.hash = "#feed"
+        btnMenu.classList.remove("out")
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -64,6 +66,7 @@ export default () => {
     googleLogIn()
       .then(() => {
         window.location.hash = "#feed";
+        btnMenu.classList.remove("out")
       })
       .catch((error) => {
         // const errorCode = error.code;
