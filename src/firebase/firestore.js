@@ -3,7 +3,7 @@ import {
     collection,
     addDoc
 } from "firebase/https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
-import { async } from "regenerator-runtime";
+
 
 
 // Initialize Cloud Firestore and get a reference to the service
