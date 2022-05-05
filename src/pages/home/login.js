@@ -1,7 +1,7 @@
 import {
   userLogIn,
-  googleLogIn
-} from "../../firebase/auth-firebase.js";
+  googleLogIn,
+} from '../../firebase/auth-firebase.js';
 
 export default () => {
   const container = document.createElement('div');

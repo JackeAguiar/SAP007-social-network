@@ -1,10 +1,6 @@
 import {
   userRegister,
-<<<<<<< HEAD
-} from '../firebase/auth-firebase.js';
-=======
-} from "../../firebase/auth-firebase.js";
->>>>>>> 1dde92bcffb1cdf0f6e3c1d0dedcc96a69c4fe85
+} from '../../firebase/auth-firebase.js';
 
 export default () => {
   const container = document.createElement('div');
