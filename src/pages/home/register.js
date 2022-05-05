@@ -1,6 +1,6 @@
 import {
   userRegister,
-} from "../../firebase/auth-firebase.js";
+} from '../../firebase/auth-firebase.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -26,47 +26,42 @@ export default () => {
   container.innerHTML = template;
 
   // const name = container.querySelector("#name");
-  const email = container.querySelector("#emailRegister");
-  const password = container.querySelector("#password");
-  const erroMsg = container.querySelector("#erro")
-  const checkPassword = container.querySelector("#checkPassword");
+  const email = container.querySelector('#emailRegister');
+  const password = container.querySelector('#password');
+  const erroMsg = container.querySelector('#erro');
+  const checkPassword = container.querySelector('#checkPassword');
   // const btnRegister = container.querySelector("#buttonRegister")
 
-  container.addEventListener("submit", (e) => {
+  container.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (password.value == checkPassword.value) {
+    if (password.value === checkPassword.value) {
       userRegister(email.value, password.value)
         .then(() => {
-          window.location.hash = "#feed";
+          window.location.hash = '#feed';
         })
         .catch((error) => {
           const errorCode = error.code;
-          erroMsg.classList.add("error")
+          erroMsg.classList.add('error');
           switch (errorCode) {
-            case "auth/email-already-in-use":
-              erroMsg.innerHTML = "Este email já está em uso"
+            case 'auth/email-already-in-use':
+              erroMsg.innerHTML = 'Este email já está em uso';
               break;
-            case "auth/invalid-email":
-              erroMsg.innerHTML = "Email inválido"
+            case 'auth/invalid-email':
+              erroMsg.innerHTML = 'Email inválido';
               break;
-            case "auth/weak-password":
-              erroMsg.innerHTML = "Digite uma senha com no mínimo 6 caracteres"
+            case 'auth/weak-password':
+              erroMsg.innerHTML = 'Digite uma senha com no mínimo 6 caracteres';
               break;
             default:
-              erroMsg.innerHTML = "Não foi possível realizar o cadastro"
+              erroMsg.innerHTML = 'Não foi possível realizar o cadastro';
           }
-          const errorMessage = error.message
-          return errorMessage
+          const errorMessage = error.message;
+          return errorMessage;
         });
     } else {
-      erroMsg.innerHTML = "As senhas precisam ser iguais"
+      erroMsg.innerHTML = 'As senhas precisam ser iguais';
     }
-
   });
-
-
-
-
 
   //   function emailBlockingButton() {
   //     const email = container.querySelector("#emailRegister").value
