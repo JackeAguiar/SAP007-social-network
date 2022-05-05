@@ -1,3 +1,5 @@
+import { addPosts } from "../../firebase/firestore.js";
+
 export default () => {
   const container = document.createElement('div');
   container.classList.add('containerFeed');
@@ -12,3 +14,21 @@ export default () => {
   container.innerHTML = templateFeed;
   return container;
 };
+
+const 
+
+
+
+export async function addPosts(userEmail, message) {
+  try {
+      const docRef = await addDoc(collection(db, "posts"), {
+          Tema: " ",
+          userEmail,
+          message,
+          date: new Date().toLocaleDateString('pt-br'),
+      })
+      return docRef.id;
+  } catch (e) {
+      return null;
+  }
+}
