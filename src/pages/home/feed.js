@@ -56,18 +56,21 @@ export default () => {
     if (valueMessage === " " || !valueMessage) {
       errorPost.innerHTML = errorMessage
     } else {
-      addPosts(auth.currentUser.email, valueMessage) {
-        try {
-          const docRef = await addDoc(collection(db, "posts"), {
-            Tema: " ",
-            userEmail: auth.currentUser.email,
-            message: valueMessage,
-            date: new Date().toLocaleDateString('pt-br'),
-          })
-          console.log(docRef.id)
-        } 
+      addPosts(auth.currentUser.email, valueMessage)
+      try {
+        const docRef = await addDoc(collection(db, "posts"), {
+          Tema: " ",
+          userEmail: auth.currentUser.email,
+          message: valueMessage,
+          date: new Date().toLocaleDateString('pt-br'),
+        })
+        console.log(docRef.id)
+      }
+      catch (e) {
+        return null;
       }
     }
+  });
 
-      return container;
-    }
+  return container;
+};
