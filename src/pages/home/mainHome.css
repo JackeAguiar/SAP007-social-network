@@ -100,7 +100,8 @@
 .button-register,
 .button-login,
 .button-register-cas,
-.button-register-lo{
+.button-register-lo,
+.btnFPassword{
     width: 50%;
     height: 50px;
     background-color: #CC2B26;

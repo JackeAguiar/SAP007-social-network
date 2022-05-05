@@ -10,7 +10,7 @@ export default () => {
           </div>
           <p>Como foi a sessão cinema?</p>
           <button class="btnClean">X</button>
-          <textarea id="inputPost" class="inputPost">Olá</textarea>
+          <textarea id="inputPost" class="inputPost"></textarea>
           <input type="checkbox" class="inputDesk" id="critica">
           <label  class="topicDesk" for="critica">Crítica</label>  
           <input type="checkbox" class="inputDesk" id="ondeAssistir">

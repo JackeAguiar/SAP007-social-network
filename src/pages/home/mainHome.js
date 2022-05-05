@@ -1,5 +1,5 @@
 export default () => {
-  const btnMenu = document.getElementById("btnMobile")
+  const btnMenu = document.getElementById('btnMobile');
   const container = document.createElement('div');
   container.classList.add('containerMain');
 
@@ -39,6 +39,6 @@ export default () => {
   `;
 
   container.innerHTML = template;
-  btnMenu.classList.add("out")
+  btnMenu.classList.add('out');
   return container;
 };

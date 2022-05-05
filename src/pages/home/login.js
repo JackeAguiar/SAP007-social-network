@@ -22,6 +22,9 @@ export default () => {
       <button class="google" id="google">Ou click aqui e faça seu Log-In com<img alt="Google sign-in" 
       src="pages/img/googleG.webp" class="btnGoogleImg"/></button>
       </a>
+      <a href="#forgotPassword" class="fPassword">
+      Esqueceu sua senha?
+      </a>
       </form>
       
        <a href="#register" class="linkRegister">
@@ -30,18 +33,18 @@ export default () => {
        `;
   container.innerHTML = templateLogin;
 
-  const btnMenu = document.getElementById("btnMobile")
-  const email = container.querySelector("#emailLogin")
-  const password = container.querySelector("#password")
-  const erroMsg = container.querySelector("#erro")
-  const btnGoogle = container.querySelector("#google")
+  const btnMenu = document.getElementById('btnMobile');
+  const email = container.querySelector('#emailLogin');
+  const password = container.querySelector('#password');
+  const erroMsg = container.querySelector('#erro');
+  const btnGoogle = container.querySelector('#google');
 
   container.addEventListener('submit', (e) => {
     e.preventDefault();
     userLogIn(email.value, password.value)
       .then(() => {
-        window.location.hash = "#feed"
-        btnMenu.classList.remove("out")
+        window.location.hash = '#feed';
+        btnMenu.classList.remove('out');
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -65,8 +68,8 @@ export default () => {
     e.preventDefault();
     googleLogIn()
       .then(() => {
-        window.location.hash = "#feed";
-        btnMenu.classList.remove("out")
+        window.location.hash = '#feed';
+        btnMenu.classList.remove('out');
       })
       .catch((error) => {
         // const errorCode = error.code;
