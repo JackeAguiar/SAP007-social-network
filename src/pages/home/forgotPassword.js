@@ -29,9 +29,16 @@ export default () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode);
+        check.classList.add('error');
+        switch (errorCode) {
+          case 'auth/user-not-found':
+            check.innerHTML = 'Email não cadastrado';
+            break;
+          default:
+            check.innerHTML = 'Não foi possível redefinir senha';
+        }
         const errorMessage = error.message;
-        console.log(errorMessage);
+        return errorMessage;
       });
   });
   return container;
