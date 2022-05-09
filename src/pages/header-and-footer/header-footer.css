@@ -68,7 +68,7 @@ header .hamburguer{
     background: currentColor;
 }
 
-.out{
+.out span{
     display: none;
 }
 
@@ -135,11 +135,13 @@ a :visited {
         font-size: 50px;
     }
 
-    header button{
-        display: none;
+    header a {
+        width: 100%;
+        height: 100%;
+        align-self: flex-start;
     }
 
-    .menuFeed{
+    header button{
         display: none;
     }
     

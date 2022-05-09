@@ -1,5 +1,7 @@
-import { addPosts } from "../../firebase/firestore.js";
-//import { auth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+// import { template } from '@babel/core';
+import { addPosts } from '../../firebase/firestore.js';
+import { auth } from "../../firebase/auth-firebase.js";
+
 
 export default () => {
   const container = document.createElement('div');
@@ -34,15 +36,25 @@ export default () => {
          <a href="#postMobile" class="btn">
          <img class="imgPosteAqui" src="./pages/img/postAqui.png">
          </a>
+         <section class="postsFeed">
+         </section>
       `;
   container.innerHTML = templateFeed;
 
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');
   const btnClean = container.querySelector('.btnClean');
-  const message = container.querySelector('.inputPost')
-  const btnPost = container.querySelector('.btnAddPostDesk')
-  const errorPost = container.querySelector('.error')
+  const message = container.querySelector('.inputPost');
+  const btnPost = container.querySelector('.btnAddPostDesk');
+  const errorPost = container.querySelector('.error');
+  const postsFeed = container.querySelector('.postsFeed');
+
+  const user = auth.currentUser;
+  const name = user.displayName;
+  const userPhoto = user.photoURL;
+  console.log(name)
+  console.log(userPhoto)
+
 
   imgAddFile.addEventListener('click', () => {
     inputFile.click();
@@ -53,15 +65,22 @@ export default () => {
   });
 
   btnPost.addEventListener('click', async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+    const feeds = postsFeed.innerHTML;
+    postsFeed.innerHTML = '';
     const valueMessage = message.value;
-    const errorMessage = "É necessário preencher o campo de mensagem."
+    const errorMessage = 'É necessário preencher o campo de mensagem.';
 
-    if (valueMessage === " " || !valueMessage) {
-      errorPost.innerHTML = errorMessage
+    if (valueMessage === ' ' || !valueMessage) {
+      errorPost.innerHTML = errorMessage;
     } else {
       await addPosts(valueMessage);
+      postsFeed.innerHTML += `
+        <h1>${name}</h1>
+        <img src="${userPhoto}">
+        <p>${valueMessage}</p>
+      `;
+      postsFeed.innerHTML += feeds;
     }
   });
 

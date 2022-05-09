@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   sendPasswordResetEmail,
   updateProfile,
+  onAuthStateChanged,
 } from './exports.js';
 
 export const auth = getAuth();
@@ -14,15 +15,17 @@ const provider = new GoogleAuthProvider();
 export function userRegister(email, password, displayName) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      updateProfile(auth.currentUser, { displayName, })
+      updateProfile(auth.currentUser, {
+          displayName
+        })
         .then(() => {
           const user = userCredential.user;
-          return user,
+          return user;
         })
         .catch((error) => {
-          error
-        })
-    })
+          error;
+        });
+    });
 }
 
 export function userLogIn(email, password) {
@@ -45,4 +48,10 @@ export function googleLogIn() {
 
 export function forgetPassword(email) {
   return sendPasswordResetEmail(auth, email);
+}
+
+export function logged(uid) {
+  onAuthStateChanged(auth, (user) => {
+    uid(user != null);
+  });
 }
