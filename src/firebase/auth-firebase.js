@@ -5,13 +5,24 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
+  updateProfile,
 } from './exports.js';
 
-const auth = getAuth();
+export const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-export function userRegister(email, password) {
-  return createUserWithEmailAndPassword(auth, email, password);
+export function userRegister(email, password, displayName) {
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      updateProfile(auth.currentUser, { displayName, })
+        .then(() => {
+          const user = userCredential.user;
+          return user,
+        })
+        .catch((error) => {
+          error
+        })
+    })
 }
 
 export function userLogIn(email, password) {
