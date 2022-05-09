@@ -1,5 +1,5 @@
 import { addPosts } from "../../firebase/firestore.js";
-import { auth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+//import { auth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 export default () => {
   const container = document.createElement('div');
@@ -47,7 +47,7 @@ export default () => {
     message.value = '';
   });
 
-  btnPost.addEventListener('click', (e) => {
+  btnPost.addEventListener('click', async (e) => {
     e.preventDefault()
 
     const valueMessage = message.value;
@@ -56,19 +56,7 @@ export default () => {
     if (valueMessage === " " || !valueMessage) {
       errorPost.innerHTML = errorMessage
     } else {
-      addPosts(auth.currentUser.email, valueMessage)
-      try {
-        const docRef = await addDoc(collection(db, "posts"), {
-          Tema: " ",
-          userEmail: auth.currentUser.email,
-          message: valueMessage,
-          date: new Date().toLocaleDateString('pt-br'),
-        })
-        console.log(docRef.id)
-      }
-      catch (e) {
-        return null;
-      }
+      await addPosts(valueMessage);
     }
   });
 

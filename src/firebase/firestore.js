@@ -1,24 +1,25 @@
 import {
-    getFirestore,
     collection,
     addDoc
-} from "firebase/https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import { auth } from "./auth-firebase.js";
+import { db } from "./config-firebase.js";
 
 
+export const addPosts = async (message) =>{
 
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore();
-
-export async function addPosts(userEmail, message) {
     try {
         const docRef = await addDoc(collection(db, "posts"), {
-            Tema: " ",
-            userEmail,
-            message,
-            date: new Date().toLocaleDateString('pt-br'),
-        })
-        return docRef.id;
+            userEmail:auth.currentUser.email,
+            message: message,
+            data: new Date (),
+            uid: auth.currentUser.uid,
+            user: auth.currentUser.displayName,
+            like: [],
+        });
+       return console.log("Document written with ID: ", docRef);
     } catch (e) {
-        return null;
+       return console.error("Error adding document: ", e);
     }
+    
 }
