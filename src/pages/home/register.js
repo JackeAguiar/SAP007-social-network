@@ -26,7 +26,7 @@ export default () => {
 
   container.innerHTML = template;
 
-  const user = container.querySelector("#name");
+  const user = container.querySelector('#name');
   const email = container.querySelector('#emailRegister');
   const password = container.querySelector('#password');
   const erroMsg = container.querySelector('#erro');
@@ -36,7 +36,7 @@ export default () => {
 
   imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
-    if (password.type == 'password') {
+    if (password.type === 'password') {
       password.type = 'text';
     } else {
       password.type = 'password';

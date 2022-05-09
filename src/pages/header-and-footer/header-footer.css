@@ -68,7 +68,7 @@ header .hamburguer{
     background: currentColor;
 }
 
-.out{
+.out span{
     display: none;
 }
 
@@ -142,10 +142,6 @@ a :visited {
     }
 
     header button{
-        display: none;
-    }
-
-    .menuFeed{
         display: none;
     }
     

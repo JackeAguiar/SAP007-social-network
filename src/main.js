@@ -5,6 +5,9 @@ import register from './pages/home/register.js';
 import feed from './pages/home/feed.js';
 import postMobile from './pages/home/postMobile.js';
 import forgotPassword from './pages/home/forgotPassword.js';
+import {
+  logged
+} from './firebase/auth-firebase.js'
 
 const main = document.querySelector('#main');
 
@@ -17,14 +20,20 @@ const init = () => {
     case '#register':
       main.appendChild(register());
       break;
+    case '#forgotPassword':
+      main.appendChild(forgotPassword());
+      break;
     case '#feed':
-      main.appendChild(feed());
+      logged((logged) => {
+        if (logged) {
+          main.appendChild(feed());
+        } else {
+          window.location.hash = '#home';
+        }
+      });
       break;
     case '#postMobile':
       main.appendChild(postMobile());
-      break;
-    case '#forgotPassword':
-      main.appendChild(forgotPassword());
       break;
     default:
       main.appendChild(home());

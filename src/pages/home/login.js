@@ -43,7 +43,7 @@ export default () => {
 
   imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
-    if (password.type == 'password') {
+    if (password.type === 'password') {
       password.type = 'text';
     } else {
       password.type = 'password';
