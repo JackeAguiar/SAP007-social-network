@@ -14,6 +14,7 @@ export default () => {
     
       <label for="password">Senha:</label>
       <input type="password" placeholder="Digite uma senha de 6 a 8 digitos" maxlength="8" id="password" class="password inputs-log" required></input>
+      <img class="seePassword" src="./pages/img/seePassword.png">
       <p id="erro"></p>
       <a href="#feed">
       <button class="button-login" id="buttonLogin">Log-In</button>
@@ -38,6 +39,16 @@ export default () => {
   const password = container.querySelector('#password');
   const erroMsg = container.querySelector('#erro');
   const btnGoogle = container.querySelector('#google');
+  const imgVisi = container.querySelector('.seePassword');
+
+  imgVisi.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (password.type === 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
+  });
 
   container.addEventListener('submit', (e) => {
     e.preventDefault();

@@ -32,6 +32,6 @@ export default () => {
   imgAddFile.addEventListener('click', () => {
     inputFile.click();
   });
-  
+
   return container;
 };
