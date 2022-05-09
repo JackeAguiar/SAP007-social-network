@@ -26,7 +26,7 @@ export default () => {
 
   container.innerHTML = template;
 
-  // const name = container.querySelector("#name");
+  const user = container.querySelector("#name");
   const email = container.querySelector('#emailRegister');
   const password = container.querySelector('#password');
   const erroMsg = container.querySelector('#erro');
@@ -46,7 +46,7 @@ export default () => {
   container.addEventListener('submit', (e) => {
     e.preventDefault();
     if (password.value === checkPassword.value) {
-      userRegister(email.value, password.value)
+      userRegister(email.value, password.value, user.value)
         .then(() => {
           window.location.hash = '#feed';
         })

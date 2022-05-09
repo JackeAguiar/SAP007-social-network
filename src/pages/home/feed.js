@@ -1,3 +1,6 @@
+import { addPosts } from "../../firebase/firestore.js";
+//import { auth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
 export default () => {
   const container = document.createElement('div');
   container.classList.add('containerFeed');
@@ -11,6 +14,7 @@ export default () => {
           <p>Como foi a sessão cinema?</p>
           <button class="btnClean">X</button>
           <textarea id="inputPost" class="inputPost"></textarea>
+          <p id="error" class="error"></p>
           <input type="checkbox" class="inputDesk" id="critica">
           <label  class="topicDesk" for="critica">Crítica</label>  
           <input type="checkbox" class="inputDesk" id="ondeAssistir">
@@ -31,14 +35,29 @@ export default () => {
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');
   const btnClean = container.querySelector('.btnClean');
-  const inputTextArea = container.querySelector('.inputPost');
+  const message = container.querySelector('.inputPost')
+  const btnPost = container.querySelector('.btnAddPostDesk')
+  const errorPost = container.querySelector('.error')
 
   imgAddFile.addEventListener('click', () => {
     inputFile.click();
   });
 
   btnClean.addEventListener('click', () => {
-    inputTextArea.value = '';
+    message.value = '';
+  });
+
+  btnPost.addEventListener('click', async (e) => {
+    e.preventDefault()
+
+    const valueMessage = message.value;
+    const errorMessage = "É necessário preencher o campo de mensagem."
+
+    if (valueMessage === " " || !valueMessage) {
+      errorPost.innerHTML = errorMessage
+    } else {
+      await addPosts(valueMessage);
+    }
   });
 
   return container;
