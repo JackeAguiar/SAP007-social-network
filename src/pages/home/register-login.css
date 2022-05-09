@@ -1,123 +1,172 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}  
-main{
+}
+
+main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    width:100%;
+    width: 100%;
 }
 
- .inputs-log, .inputPassword{
+.inputs-log,
+.inputPassword {
     background: transparent;
     border-bottom: 1px solid #FA0000;
-    width: 100%;
+    align-self: flex-start;
+    width: 80%;
     height: 100%;
     color: white;
-} 
-
-.containerRegister{
-    height: 80%;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
 }
 
-.containerLogin, .containerFPasswword {
-    height: 80%;
-    width: 80%;
+.containerLogin,
+.containerFPasswword,
+.containerRegister {
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 5% 2%;
+}
+
+.containerFPasswword {
+    justify-content: center;
+    align-items: center;
 }
 
 .formLogIn {
     height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20%;
-}
-
-.formRegister, .formFPassword{
-    width: 90%;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    justify-self: center;
-}
-
-.formLogIn input,.formRegister input{
-    margin-bottom: 10%;
-}
-
-.formLogIn a{
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-label{
-    display: flex;
-    align-self: flex-start;
-    margin-bottom: 1%;
-}
-
-.linkGoogle{
+.formRegister,
+.formFPassword {
+    width: 100%;
     height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-self: center;
+
+}
+
+.formFPassword {
+    height: 50%;
+}
+
+.formLogIn label,
+.formRegister label,
+.formFPassword label {
+    width: 100%;
+    text-align: left;
+    margin-left: 2%;
+}
+
+.formFPassword label {
+    height: 2%;
+}
+
+.formLogIn input,
+.formRegister input,
+.formFPassword input {
+    margin: 5% 0% 5% 2%;
+    height: 10%;
+    width: 80%;
+    align-self: flex-start;
+    justify-content: end;
+}
+
+.formRegister input {
+    height: 7%;
+}
+
+.seePassword {
+    width: 7%;
+    height: auto;
+    align-self: center;
+    justify-content: center;
+    margin: 0% auto;
+    cursor: pointer;
+}
+
+.formLogIn a,
+.formRegister a {
+    width: 100%;
+}
+
+.linkGoogle {
     width: 100%;
     background-color: transparent;
 }
 
-.google{
+.google {
     background-color: transparent;
     display: inline-flex;
     justify-content: center;
     align-items: center;
 }
 
-.btnGoogleImg{
+.btnGoogleImg {
     width: 20px;
     height: 20px;
     margin-left: 2%;
 }
 
-.linkRegister{
+.linkRegister {
     justify-self: end;
 }
 
-button{
+.formFPassword button {
+    margin: 0% auto;
+}
+
+button {
     height: 100%;
     width: 100%;
-    margin:2% 0% 10% 0%;
+    margin: 2% 0% 10% 0%;
     color: white;
     cursor: pointer;
 }
 
-.button-register-lo{
+.button-register-lo {
     height: 80%;
 }
 
+.formFPassword p, .formLogIn p, .formRegister p {
+    text-align: center;
+    width: 100%;
+}
 
-@media (min-device-width: 550px){
-    .containerLogin, .containerRegister, .containerFPasswword{
+
+@media (min-device-width: 550px) {
+
+    .containerLogin,
+    .containerRegister,
+    .containerFPasswword {
         border: 1px solid black;
         border-radius: 20px;
         height: 90%;
         padding: 2%;
         background-color: #18191a;
-        box-shadow:0 0 1em gray;
+        box-shadow: 0 0 1em gray;
         max-width: 500px;
-        max-height: 600px ;
+        max-height: 600px;
     }
 
-    .formRegister{
-        height: 100%;
+    .formLogIn label {
+        margin: 2% 100% 0% 2%;
+    }
+
+    .formRegister label {
+        width: 100%;
+        text-align: left;
     }
 }

@@ -14,6 +14,7 @@ export default () => {
   <input type"email" id="emailRegister" onchance="emailBlockingButton()" class="inputs-log" placeholder="exemplo@gmail.com" required></input>
   <label for="senha">Senha:</label>
   <input type="password" id="password" class="inputs-log" placeholder="Digite uma senha de 6 a 8 dígitos" required></input>
+  <img class="seePassword" src="./pages/img/seePassword.png">
   <label for="check-Senha">Confirmar senha:</label>
   <input type="password" id="checkPassword" class="inputs-log" placeholder="Digite novamente sua senha" required></input>
   <p id="erro"></p>
@@ -31,6 +32,16 @@ export default () => {
   const erroMsg = container.querySelector('#erro');
   const checkPassword = container.querySelector('#checkPassword');
   // const btnRegister = container.querySelector("#buttonRegister")
+  const imgVisi = container.querySelector('.seePassword');
+
+  imgVisi.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (password.type == 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
+  });
 
   container.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -62,24 +73,6 @@ export default () => {
       erroMsg.innerHTML = 'As senhas precisam ser iguais';
     }
   });
-
-  //   function emailBlockingButton() {
-  //     const email = container.querySelector("#emailRegister").value
-  //     if (!email) {
-  //       document.querySelector("#buttonRegister").disabled = true
-  //     }else if (validateEmail(email)){
-  //       document.querySelector("#buttonRegister").disabled = false
-  //     }
-  //     else{
-  //       document.querySelector("#buttonRegister").disabled = true
-  //     }
-  //   }
-  //   emailBlockingButton()
-
-  //   function validateEmail(email) {
-  //     var re = /\S+@\S+\.\S+/;
-  //     return re.test(email);
-  //   }
 
   return container;
 };
