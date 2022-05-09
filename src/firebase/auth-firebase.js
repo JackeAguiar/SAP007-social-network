@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail,
 } from './exports.js';
 
 const auth = getAuth();
@@ -29,4 +30,8 @@ export function googleLogIn() {
       // const user = result.user;
       return credential;
     });
+}
+
+export function forgetPassword(email) {
+  return sendPasswordResetEmail(auth, email);
 }

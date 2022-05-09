@@ -20,16 +20,23 @@ export default () => {
       </a>
       <a href="#feed" class="linkGoogle">
       <button class="google" id="google">Ou click aqui e faça seu Log-In com<img alt="Google sign-in" 
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png" class="btnGoogleImg"/></button>
+      src="pages/img/googleG.webp" class="btnGoogleImg"/></button>
+      </a>
+      <a href="#forgotPassword" class="fPassword">
+      Esqueceu sua senha?
       </a>
       </form>
       
        <a href="#register" class="linkRegister">
        <button class="button-register-lo" id="buttonRegister">Cadastrar-se</button>
        </a>
-    `;
+       `;
   container.innerHTML = templateLogin;
 
+<<<<<<< HEAD
+=======
+  const btnMenu = document.getElementById('btnMobile');
+>>>>>>> 531d8217abe15e962fc74d8f036debbcec8b2d1f
   const email = container.querySelector('#emailLogin');
   const password = container.querySelector('#password');
   const erroMsg = container.querySelector('#erro');
@@ -40,6 +47,10 @@ export default () => {
     userLogIn(email.value, password.value)
       .then(() => {
         window.location.hash = '#feed';
+<<<<<<< HEAD
+=======
+        btnMenu.classList.remove('out');
+>>>>>>> 531d8217abe15e962fc74d8f036debbcec8b2d1f
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -64,11 +75,18 @@ export default () => {
     googleLogIn()
       .then(() => {
         window.location.hash = '#feed';
+<<<<<<< HEAD
+=======
+        btnMenu.classList.remove('out');
+>>>>>>> 531d8217abe15e962fc74d8f036debbcec8b2d1f
       })
       .catch((error) => {
         // const errorCode = error.code;
         const errorMessage = error.message;
+<<<<<<< HEAD
         // console.log(errorMessage);
+=======
+>>>>>>> 531d8217abe15e962fc74d8f036debbcec8b2d1f
         // const email = error.email;
         // const credential = GoogleAuthProvider.credentialFromError(error);
         return errorMessage;

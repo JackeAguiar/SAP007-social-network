@@ -8,15 +8,34 @@
   <link rel="stylesheet" href="./pages/home/mainHome.css">
   <link rel="stylesheet" href="./pages/header-and-footer/header-footer.css">
   <link rel="stylesheet" href="./pages/home/register-login.css">
-  <title>Pop Time</title>  
+  <link rel="stylesheet" href="./pages/home/feed.css">
+  <title>Pop Time</title>
 </head>
 
 <body>
+
   <header>
-    <a id="link-header" class="link-header" href="#home">
-      <img id="logo" class="logo" src="images/popTimeLogo.png">
-      <h1 class="link-header">Pop Time</h1>
+    <a id="linkHeader" class="linkHeader" href="#home">
+      <img id="logo" class="logo" src="pages/img/popTimeLogo.png">
     </a>
+      <h1 class="linkHeader">Pop Time</h1>
+      <button class="btnMobile out" id="btnMobile">Menu</button>
+    <nav id="nav">
+      <ul class="menuFeed" id="menuFeed">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#profile">Perfil</a>
+        </li>
+        <li>
+          <a href="#post" class="sendPost" id="sendPost">Postar</a>
+        </li>
+        <li>
+          <a href="#exit">Sair</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <main id="main" class="main">
@@ -24,16 +43,17 @@
 
   </main>
 
-<footer class="footer">
-      <p>
-        <a href="https://github.com/Brulibra" target="_blank">Bruna de Paula </a>,
-        <a href="https://github.com/JackeAguiar" target="_blank">Jackeline Aguiar </a>e
-        <a href="https://github.com/ThamaraBortolin" target="_blank">Thâmara Bortolin</a><br>
-              Laboratoria SAP-007
+  <footer class="footer">
+    <p>
+      <a href="https://github.com/Brulibra" target="_blank">Bruna de Paula </a>,
+      <a href="https://github.com/JackeAguiar" target="_blank">Jackeline Aguiar </a>e
+      <a href="https://github.com/ThamaraBortolin" target="_blank">Thâmara Bortolin</a><br>
+      Laboratoria SAP-007
     </p>
-</footer>
+  </footer>
 
   <script type="module" src="main.js"></script>
+  <script type="module" src="./pages/header-and-footer/menuMobile.js"></script>
 
 </body>
 
