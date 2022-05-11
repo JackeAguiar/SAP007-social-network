@@ -7,6 +7,7 @@ import {
   sendPasswordResetEmail,
   updateProfile,
   onAuthStateChanged,
+  signOut,
 } from './exports.js';
 
 export const auth = getAuth();
@@ -16,8 +17,8 @@ export function userRegister(email, password, displayName) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       updateProfile(auth.currentUser, {
-          displayName
-        })
+        displayName,
+      })
         .then(() => {
           const user = userCredential.user;
           return user;
@@ -54,4 +55,8 @@ export function logged(uid) {
   onAuthStateChanged(auth, (user) => {
     uid(user != null);
   });
+}
+
+export function notLogged() {
+  return signOut(auth);
 }

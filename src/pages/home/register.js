@@ -33,6 +33,7 @@ export default () => {
   const checkPassword = container.querySelector('#checkPassword');
   // const btnRegister = container.querySelector("#buttonRegister")
   const imgVisi = container.querySelector('.seePassword');
+  const linkHome = document.querySelector('.linkHeader');
 
   imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
