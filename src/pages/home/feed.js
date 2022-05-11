@@ -50,6 +50,15 @@ export default () => {
   const themesOn = container.querySelector('#ondeAssistir');
   const themesRes = container.querySelector('#resenha');
   const btnOut = document.querySelector('.btnOut');
+  const nav = document.getElementById('nav');
+  const btnMobile = document.getElementById('btnMobile');
+  const btnMenu = document.getElementById('btnMobile');
+
+  function toggleMenu() {
+    nav.classList.toggle('active');
+  }
+
+  btnMobile.addEventListener('click', toggleMenu);
 
   themesCri.addEventListener('click', () => {
     if (themesCri.checked === true) {
@@ -98,8 +107,7 @@ export default () => {
 
     if ((valueMessage === ' ' || !valueMessage)) {
       errorPost.innerHTML = errorMessage;
-    } else if
-    ((themesCri.checked === false && themesOn.checked === false && themesRes.checked === false)) {
+    } else if ((themesCri.checked === false && themesOn.checked === false && themesRes.checked === false)) {
       errorPost.innerHTML = errorTheme;
     } else {
       await addPosts(valueMessage);
@@ -111,7 +119,8 @@ export default () => {
     notLogged()
       .then(() => {
         window.location.hash = '#login';
-        console.log('saiu')
+        nav.classList.remove('active');
+        btnMenu.classList.add('out');
       }).catch((error) => {
         error
       });
