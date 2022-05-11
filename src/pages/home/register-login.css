@@ -140,7 +140,9 @@ button {
     height: 80%;
 }
 
-.formFPassword p, .formLogIn p, .formRegister p {
+.formFPassword p,
+.formLogIn p,
+.formRegister p {
     text-align: center;
     width: 100%;
 }

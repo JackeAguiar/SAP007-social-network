@@ -1,22 +1,15 @@
-// import { template } from '@babel/core';
 import { addPosts } from '../../firebase/firestore.js';
-import { auth } from "../../firebase/auth-firebase.js";
-
+import { auth } from '../../firebase/auth-firebase.js';
 
 export default () => {
   const container = document.createElement('div');
   container.classList.add('containerFeed');
 
   const templateFeed = `
-<<<<<<< HEAD
-         <h1>Conseguimos <3</h1>
-      `;
-  container.innerHTML = templateFeed;
-=======
 
          <section class="postDesktop">
           <div class="containerImgUserDesk">
-            <img class="imgUser" src="./pages/img/add.png">
+            <img class="imgUser" src="images/img/add.png">
           </div>
           <p>Como foi a sessão cinema?</p>
           <button class="btnClean">X</button>
@@ -28,13 +21,13 @@ export default () => {
           <label class="topicDesk" for="ondeAssistir">Onde Assistir</label>
           <input type="checkbox" class="inputDesk" id="resenha">
           <label class="topicDesk" for="resenha">Resenha</label>
-          <img src="./pages/img/addFile.png" class="addFile">
+          <img src="images/img/addFile.png" class="addFile">
           <input type="file" accept=".png, .jpg, .jpeg" class="inputFile"></input>
           <button type="submit" class="btnAddPostDesk">Postar</button>
          </section>
 
          <a href="#postMobile" class="btn">
-         <img class="imgPosteAqui" src="./pages/img/postAqui.png">
+         <img class="imgPosteAqui" src="images/img/postAqui.png">
          </a>
          <section class="postsFeed">
          </section>
@@ -52,9 +45,8 @@ export default () => {
   const user = auth.currentUser;
   const name = user.displayName;
   const userPhoto = user.photoURL;
-  console.log(name)
-  console.log(userPhoto)
-
+  // console.log(name);
+  // console.log(userPhoto);
 
   imgAddFile.addEventListener('click', () => {
     inputFile.click();
@@ -84,6 +76,5 @@ export default () => {
     }
   });
 
->>>>>>> 531d8217abe15e962fc74d8f036debbcec8b2d1f
   return container;
 };

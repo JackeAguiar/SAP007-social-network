@@ -6,8 +6,8 @@ import feed from './pages/home/feed.js';
 import postMobile from './pages/home/postMobile.js';
 import forgotPassword from './pages/home/forgotPassword.js';
 import {
-  logged
-} from './firebase/auth-firebase.js'
+  logged,
+} from './firebase/auth-firebase.js';
 
 const main = document.querySelector('#main');
 
