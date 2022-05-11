@@ -1,6 +1,6 @@
 import {
-  userRegister
-} from "../firebase/auth-firebase.js";
+  userRegister,
+} from '../../firebase/auth-firebase.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -14,6 +14,7 @@ export default () => {
   <input type"email" id="emailRegister" onchance="emailBlockingButton()" class="inputs-log" placeholder="exemplo@gmail.com" required></input>
   <label for="senha">Senha:</label>
   <input type="password" id="password" class="inputs-log" placeholder="Digite uma senha de 6 a 8 dígitos" required></input>
+  <img class="seePassword" src="./pages/img/seePassword.png">
   <label for="check-Senha">Confirmar senha:</label>
   <input type="password" id="checkPassword" class="inputs-log" placeholder="Digite novamente sua senha" required></input>
   <p id="erro"></p>
@@ -25,66 +26,54 @@ export default () => {
 
   container.innerHTML = template;
 
-  // const name = container.querySelector("#name");
-  const email = container.querySelector("#emailRegister");
-  const password = container.querySelector("#password");
-  const erroMsg = container.querySelector("#erro")
-  const checkPassword = container.querySelector("#checkPassword");
+  const user = container.querySelector('#name');
+  const email = container.querySelector('#emailRegister');
+  const password = container.querySelector('#password');
+  const erroMsg = container.querySelector('#erro');
+  const checkPassword = container.querySelector('#checkPassword');
   // const btnRegister = container.querySelector("#buttonRegister")
+  const imgVisi = container.querySelector('.seePassword');
 
-  container.addEventListener("submit", (e) => {
+  imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
-    if (password.value == checkPassword.value) {
-      userRegister(email.value, password.value)
+    if (password.type === 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
+  });
+
+  container.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (password.value === checkPassword.value) {
+      userRegister(email.value, password.value, user.value)
         .then(() => {
-          window.location.hash = "#feed";
+          window.location.hash = '#feed';
+          window.location.reload();
         })
         .catch((error) => {
           const errorCode = error.code;
-          erroMsg.classList.add("error")
+          erroMsg.classList.add('error');
           switch (errorCode) {
-            case "auth/email-already-in-use":
-              erroMsg.innerHTML = "Este email já está em uso"
+            case 'auth/email-already-in-use':
+              erroMsg.innerHTML = 'Este email já está em uso';
               break;
-            case "auth/invalid-email":
-              erroMsg.innerHTML = "Email inválido"
+            case 'auth/invalid-email':
+              erroMsg.innerHTML = 'Email inválido';
               break;
-            case "auth/weak-password":
-              erroMsg.innerHTML = "Digite uma senha com no mínimo 6 caracteres"
+            case 'auth/weak-password':
+              erroMsg.innerHTML = 'Digite uma senha com no mínimo 6 caracteres';
               break;
             default:
-              erroMsg.innerHTML = "Não foi possível realizar o cadastro"
+              erroMsg.innerHTML = 'Não foi possível realizar o cadastro';
           }
-          const errorMessage = error.message
-          return errorMessage
+          const errorMessage = error.message;
+          return errorMessage;
         });
     } else {
-      erroMsg.innerHTML = "As senhas precisam ser iguais"
+      erroMsg.innerHTML = 'As senhas precisam ser iguais';
     }
-
   });
-
-
-
-
-
-  //   function emailBlockingButton() {
-  //     const email = container.querySelector("#emailRegister").value
-  //     if (!email) {
-  //       document.querySelector("#buttonRegister").disabled = true
-  //     }else if (validateEmail(email)){
-  //       document.querySelector("#buttonRegister").disabled = false
-  //     }
-  //     else{
-  //       document.querySelector("#buttonRegister").disabled = true
-  //     }
-  //   }
-  //   emailBlockingButton()
-
-  //   function validateEmail(email) {
-  //     var re = /\S+@\S+\.\S+/;
-  //     return re.test(email);
-  //   }
 
   return container;
 };

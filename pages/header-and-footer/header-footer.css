@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
 
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     width: 100%;
-    height: 100vh ;
+    height: 100vh;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 15% 75% 10%;
@@ -23,56 +23,130 @@ header {
     background-color: #313131;
 }
 
-header img{
+header img {
     height: 90%;
     width: auto;
 }
 
+li{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid rgb(0, 0, 0, .1)
+}
 
-.link-header {
+.linkHeader {
     font-size: 30px;
     font-family: 'Cinzel Decorative';
     align-self: center;
     justify-self: center;
 }
 
-header a{
+
+header .btnMobile{
+    background: #313131;
+    display: flex;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    align-items: center;
+    justify-content: center;
+}
+
+header .hamburguer{
+    width: 20px;
+    border-top: 2px solid white;
+}
+
+.hamburguer::after, .hamburguer::before{
+    content: '';
+    display: block;
+    margin-top: 5px;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+}
+
+.out span{
+    display: none;
+}
+
+/*Corrigir chamada*/
+nav.active .menuFeed{
+    visibility: visible;
+    overflow-y: auto;
+    height: calc(100vh - 15vh - 10vh);
+}
+
+.menuFeed{
+    display: block;
+    position: absolute;
+    width: 50%;
+    top: 15vh;
+    right: 0px;
+    background: #313131;
+    height: 0vh;
+    transition: .6s;
+    z-index: 1000;
+    visibility: hidden;
+    overflow-y: hidden;
+}
+
+.menuFeed a{
+    padding: 1rem 0;
+    margin: 0 1rem;
+}
+
+header {
     display: grid;
     height: 100%;
     grid-template-columns: 20% auto 20%;
     grid-template-rows: 100%;
 }
 
-a{  
+header h1, a {
     color: white;
     text-decoration: none;
     font-family: 'Alice';
 }
 
 .footer {
-  margin: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #313131;
-  text-align: center;
-  box-shadow: none;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #313131;
+    text-align: center;
+    box-shadow: none;
 }
 
-.footer, a :visited{
+.footer,
+a :visited {
     color: white
 }
 
 @media (min-device-width: 819px) {
-    body{
+    body {
         grid-template-rows: 15% 80% 5%;
     }
-
-    .link-header{
-        font-size: 50px ;
+    
+    .linkHeader {
+        font-size: 50px;
     }
 
-    footer{
+    header a {
+        width: 100%;
+        height: 100%;
+        align-self: flex-start;
+    }
+
+    header button{
+        display: none;
+    }
+    
+
+    footer {
         font-size: 1vmax;
     }
 }
