@@ -33,7 +33,6 @@ export default () => {
   const checkPassword = container.querySelector('#checkPassword');
   // const btnRegister = container.querySelector("#buttonRegister")
   const imgVisi = container.querySelector('.seePassword');
-  const linkHome = document.querySelector('.linkHeader');
 
   imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
@@ -50,6 +49,7 @@ export default () => {
       userRegister(email.value, password.value, user.value)
         .then(() => {
           window.location.hash = '#feed';
+          window.location.reload();
         })
         .catch((error) => {
           const errorCode = error.code;
