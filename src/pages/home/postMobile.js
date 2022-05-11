@@ -1,3 +1,6 @@
+import { addPosts } from '../../firebase/firestore.js';
+import { auth } from '../../firebase/auth-firebase.js';
+
 export default () => {
   const container = document.createElement('div');
   container.classList.add('containerFeedMobile');
@@ -28,6 +31,12 @@ export default () => {
 
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');
+  const message = container.querySelector('.inputPost');
+  const btnPost = container.querySelector('.btnAddPost');
+
+  const user = auth.currentUser;
+  const name = user.displayName;
+  const userPhoto = user.photoURL;
 
   imgAddFile.addEventListener('click', () => {
     inputFile.click();

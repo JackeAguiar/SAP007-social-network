@@ -33,7 +33,13 @@ const init = () => {
       });
       break;
     case '#postMobile':
-      main.appendChild(postMobile());
+      logged((logged) => {
+        if (logged) {
+          main.appendChild(postMobile());
+        } else {
+          window.location.hash = '#home';
+        }
+      });
       break;
     default:
       main.appendChild(home());

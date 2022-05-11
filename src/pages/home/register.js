@@ -49,6 +49,7 @@ export default () => {
       userRegister(email.value, password.value, user.value)
         .then(() => {
           window.location.hash = '#feed';
+          window.location.reload();
         })
         .catch((error) => {
           const errorCode = error.code;
