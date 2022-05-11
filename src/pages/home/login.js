@@ -14,14 +14,14 @@ export default () => {
     
       <label for="password">Senha:</label>
       <input type="password" placeholder="Digite uma senha de 6 a 8 digitos" maxlength="8" id="password" class="password inputs-log" required></input>
-      <img class="seePassword" src="./pages/img/seePassword.png">
+      <img class="seePassword" src="images/img/seePassword.png">
       <p id="erro"></p>
       <a href="#feed">
       <button class="button-login" id="buttonLogin">Log-In</button>
       </a>
       <a href="#feed" class="linkGoogle">
       <button class="google" id="google">Ou click aqui e faça seu Log-In com<img alt="Google sign-in" 
-      src="pages/img/googleG.webp" class="btnGoogleImg"/></button>
+      src="images/img/googleG.webp" class="btnGoogleImg"/></button>
       </a>
       <a href="#forgotPassword" class="fPassword">
       Esqueceu sua senha?
@@ -34,13 +34,17 @@ export default () => {
        `;
   container.innerHTML = templateLogin;
 
-  const btnMenu = document.getElementById('btnMobile');
   const email = container.querySelector('#emailLogin');
   const password = container.querySelector('#password');
+
   const erroMsg = container.querySelector('#erro');
+
   const btnGoogle = container.querySelector('#google');
+  const btnMenu = document.getElementById('btnMobile');
+
   const imgVisi = container.querySelector('.seePassword');
 
+  // funçao de ver e desver a senha
   imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
     if (password.type === 'password') {
@@ -50,6 +54,7 @@ export default () => {
     }
   });
 
+  // função para logar
   container.addEventListener('submit', (e) => {
     e.preventDefault();
     userLogIn(email.value, password.value)
@@ -75,6 +80,7 @@ export default () => {
       });
   });
 
+  // função para logar com o google
   btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     googleLogIn()
@@ -83,10 +89,7 @@ export default () => {
         btnMenu.classList.remove('out');
       })
       .catch((error) => {
-        // const errorCode = error.code;
         const errorMessage = error.message;
-        // const email = error.email;
-        // const credential = GoogleAuthProvider.credentialFromError(error);
         return errorMessage;
       });
   });

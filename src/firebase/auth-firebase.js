@@ -13,7 +13,6 @@ import {
 export const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-
 export function userRegister(email, password, displayName) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
