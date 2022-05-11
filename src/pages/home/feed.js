@@ -1,10 +1,14 @@
 import {
   addPosts,
+  showPosts,
 } from '../../firebase/firestore.js';
 import {
   auth,
   notLogged,
 } from '../../firebase/auth-firebase.js';
+import {
+  getAllPosts
+} from './allPosts.js'
 
 export default () => {
   const container = document.createElement('div');
@@ -20,11 +24,11 @@ export default () => {
           <button class="btnClean">X</button>
           <textarea id="inputPost" class="inputPost"></textarea>
           <p id="error" class="error"></p>
-          <input type="checkbox" class="inputDesk" id="critica" name="theme" value="critica">
+          <input type="checkbox" class="inputDesk" id="critica" name="theme" value="Critica">
           <label  class="topicDesk" for="critica">Crítica</label>  
-          <input type="checkbox" class="inputDesk" id="ondeAssistir" name="theme" value="ondeAssistir">
+          <input type="checkbox" class="inputDesk" id="ondeAssistir" name="theme" value="Onde Assistir">
           <label class="topicDesk" for="ondeAssistir">Onde Assistir</label>
-          <input type="checkbox" class="inputDesk" id="resenha" name="theme" value="resenha" >
+          <input type="checkbox" class="inputDesk" id="resenha" name="theme" value="Resenha" >
           <label class="topicDesk" for="resenha">Resenha</label>
           <img src="images/img/addFile.png" class="addFile">
           <input type="file" accept=".png, .jpg, .jpeg" class="inputFile"></input>
@@ -34,7 +38,7 @@ export default () => {
          <a href="#postMobile" class="btn">
          <img class="imgPosteAqui" src="images/img/postAqui.png">
          </a>
-         <ul class="postsFeed">
+         <ul class="sectionPosts">
          </ul>
       `;
   container.innerHTML = templateFeed;
@@ -44,6 +48,7 @@ export default () => {
 
   const message = container.querySelector('.inputPost');
   const errorPost = container.querySelector('.error');
+  const areaPosts = container.querySelector('.sectionPosts');
 
   const nav = document.getElementById('nav');
 
@@ -63,31 +68,6 @@ export default () => {
   }
 
   btnMobile.addEventListener('click', toggleMenu);
-
-  // função de pegar valor do checkbox
-  themesCri.addEventListener('click', () => {
-    if (themesCri.checked === true) {
-      console.log(themesCri.value);
-    } else {
-      return false;
-    }
-  });
-
-  themesOn.addEventListener('click', () => {
-    if (themesOn.checked === true) {
-      console.log(themesOn.value);
-    } else {
-      return false;
-    }
-  });
-
-  themesRes.addEventListener('click', () => {
-    if (themesRes.checked === true) {
-      console.log(themesRes.value);
-    } else {
-      return false;
-    }
-  });
 
   const user = auth.currentUser;
   const name = user.displayName;
@@ -111,7 +91,21 @@ export default () => {
     const valueMessage = message.value;
     const errorMessage = 'É necessário preencher o campo de mensagem.';
     const errorTheme = 'É necessário adicionar um tema de postagem.';
-    // const themes = container.getElementsByName('theme');
+    const arrayTheme = [];
+
+    if (themesCri.checked === true) {
+      arrayTheme.push(themesCri.value);
+    }
+
+    if (themesOn.checked === true) {
+      arrayTheme.push(themesOn.value);
+    }
+
+    if (themesRes.checked === true) {
+      arrayTheme.push(themesRes.value);
+    }
+
+    const theme = arrayTheme.join(' | ');
 
     if ((valueMessage === ' ' || !valueMessage)) {
       errorPost.innerHTML = errorMessage;
@@ -119,7 +113,7 @@ export default () => {
     ((themesCri.checked === false && themesOn.checked === false && themesRes.checked === false)) {
       errorPost.innerHTML = errorTheme;
     } else {
-      await addPosts(valueMessage);
+      await addPosts(valueMessage, theme);
     }
   });
 
@@ -136,5 +130,13 @@ export default () => {
       });
   });
 
+  const showAllPosts = async () => {
+    const timeline = await showPosts();
+    timeline.forEach((user) => {
+      const postFeeds = getAllPosts(user);
+      areaPosts.prepend(postFeeds);
+    });
+  };
+  showAllPosts();
   return container;
 };
