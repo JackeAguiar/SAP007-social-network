@@ -31,7 +31,7 @@ export default () => {
   const password = container.querySelector('#password');
   const erroMsg = container.querySelector('#erro');
   const checkPassword = container.querySelector('#checkPassword');
-  // const btnRegister = container.querySelector("#buttonRegister")
+  // const btnRegister = container.querySelector("#buttonRegister");
   const imgVisi = container.querySelector('.seePassword');
 
   imgVisi.addEventListener('click', (e) => {
