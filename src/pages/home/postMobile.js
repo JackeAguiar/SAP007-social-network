@@ -1,4 +1,4 @@
-import { addPosts } from '../../firebase/firestore.js';
+// import { addPosts } from '../../firebase/firestore.js';
 import { auth } from '../../firebase/auth-firebase.js';
 
 export default () => {
@@ -31,13 +31,14 @@ export default () => {
 
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');
-  const message = container.querySelector('.inputPost');
-  const btnPost = container.querySelector('.btnAddPost');
+  // const message = container.querySelector('.inputPost');
+  // const btnPost = container.querySelector('.btnAddPost');
 
-  const user = auth.currentUser;
-  const name = user.displayName;
-  const userPhoto = user.photoURL;
+  // const user = auth.currentUser;
+  // const name = user.displayName;
+  // const userPhoto = user.photoURL;
 
+  // função de input file
   imgAddFile.addEventListener('click', () => {
     inputFile.click();
   });

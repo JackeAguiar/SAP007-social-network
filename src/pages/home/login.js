@@ -34,13 +34,17 @@ export default () => {
        `;
   container.innerHTML = templateLogin;
 
-  const btnMenu = document.getElementById('btnMobile');
   const email = container.querySelector('#emailLogin');
   const password = container.querySelector('#password');
+
   const erroMsg = container.querySelector('#erro');
+
   const btnGoogle = container.querySelector('#google');
+  const btnMenu = document.getElementById('btnMobile');
+
   const imgVisi = container.querySelector('.seePassword');
 
+  // funçao de ver e desver a senha
   imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
     if (password.type === 'password') {
@@ -50,6 +54,7 @@ export default () => {
     }
   });
 
+  // função para logar
   container.addEventListener('submit', (e) => {
     e.preventDefault();
     userLogIn(email.value, password.value)
@@ -75,6 +80,7 @@ export default () => {
       });
   });
 
+  // função para logar com o google
   btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     googleLogIn()
@@ -83,10 +89,7 @@ export default () => {
         btnMenu.classList.remove('out');
       })
       .catch((error) => {
-        // const errorCode = error.code;
         const errorMessage = error.message;
-        // const email = error.email;
-        // const credential = GoogleAuthProvider.credentialFromError(error);
         return errorMessage;
       });
   });

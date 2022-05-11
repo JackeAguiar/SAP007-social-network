@@ -29,11 +29,12 @@ export default () => {
   const user = container.querySelector('#name');
   const email = container.querySelector('#emailRegister');
   const password = container.querySelector('#password');
+
   const erroMsg = container.querySelector('#erro');
   const checkPassword = container.querySelector('#checkPassword');
-  // const btnRegister = container.querySelector("#buttonRegister")
   const imgVisi = container.querySelector('.seePassword');
 
+  // função de ver e desver senha
   imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
     if (password.type === 'password') {
@@ -43,6 +44,7 @@ export default () => {
     }
   });
 
+  // função de registrar o usuario
   container.addEventListener('submit', (e) => {
     e.preventDefault();
     if (password.value === checkPassword.value) {

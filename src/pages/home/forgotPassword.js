@@ -17,10 +17,11 @@ export default () => {
 
   container.innerHTML = templateFPassword;
 
-  const btnFPassword = container.querySelector('.btnFPassword');
   const email = container.querySelector('#redPassword');
   const check = container.querySelector('.redCheck');
+  const btnFPassword = container.querySelector('.btnFPassword');
 
+  // função de recuperar a senha
   btnFPassword.addEventListener('click', (e) => {
     e.preventDefault();
     forgetPassword(email.value)

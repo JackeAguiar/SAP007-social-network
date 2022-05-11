@@ -3,7 +3,7 @@ import {
 } from '../../firebase/firestore.js';
 import {
   auth,
-  notLogged
+  notLogged,
 } from '../../firebase/auth-firebase.js';
 
 export default () => {
@@ -41,24 +41,30 @@ export default () => {
 
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');
-  const btnClean = container.querySelector('.btnClean');
+
   const message = container.querySelector('.inputPost');
-  const btnPost = container.querySelector('.btnAddPostDesk');
   const errorPost = container.querySelector('.error');
+
+  const nav = document.getElementById('nav');
+
   const themesCri = container.querySelector('#critica');
   const themesOn = container.querySelector('#ondeAssistir');
   const themesRes = container.querySelector('#resenha');
+
   const btnOut = document.querySelector('.btnOut');
-  const nav = document.getElementById('nav');
+  const btnPost = container.querySelector('.btnAddPostDesk');
+  const btnClean = container.querySelector('.btnClean');
   const btnMobile = document.getElementById('btnMobile');
   const btnMenu = document.getElementById('btnMobile');
 
+  // ativar e desativar o menu hamburguer
   function toggleMenu() {
     nav.classList.toggle('active');
   }
 
   btnMobile.addEventListener('click', toggleMenu);
 
+  // função de pegar valor do checkbox
   themesCri.addEventListener('click', () => {
     if (themesCri.checked === true) {
       console.log(themesCri.value);
@@ -89,14 +95,17 @@ export default () => {
   console.log(name);
   console.log(userPhoto);
 
+  // função de imagem input file
   imgAddFile.addEventListener('click', () => {
     inputFile.click();
   });
 
+  // funçaõ de limpar o textArea
   btnClean.addEventListener('click', () => {
     message.value = '';
   });
 
+  // mandar mensagem para firestore
   btnPost.addEventListener('click', async (e) => {
     e.preventDefault();
     const valueMessage = message.value;
@@ -106,13 +115,15 @@ export default () => {
 
     if ((valueMessage === ' ' || !valueMessage)) {
       errorPost.innerHTML = errorMessage;
-    } else if ((themesCri.checked === false && themesOn.checked === false && themesRes.checked === false)) {
+    } else if
+    ((themesCri.checked === false && themesOn.checked === false && themesRes.checked === false)) {
       errorPost.innerHTML = errorTheme;
     } else {
       await addPosts(valueMessage);
     }
   });
 
+  // funçaõ de sair
   btnOut.addEventListener('click', (e) => {
     e.preventDefault();
     notLogged()
@@ -121,9 +132,9 @@ export default () => {
         nav.classList.remove('active');
         btnMenu.classList.add('out');
       }).catch((error) => {
-        error
+        error;
       });
   });
 
   return container;
-}
+};
