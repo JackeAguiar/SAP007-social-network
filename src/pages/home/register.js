@@ -14,7 +14,7 @@ export default () => {
   <input type"email" id="emailRegister" onchance="emailBlockingButton()" class="inputs-log" placeholder="exemplo@gmail.com" required></input>
   <label for="senha">Senha:</label>
   <input type="password" id="password" class="inputs-log" placeholder="Digite uma senha de 6 a 8 dígitos" required></input>
-  <img class="seePassword" src="./pages/img/seePassword.png">
+  <img class="seePassword" src="images/img/seePassword.png">
   <label for="check-Senha">Confirmar senha:</label>
   <input type="password" id="checkPassword" class="inputs-log" placeholder="Digite novamente sua senha" required></input>
   <p id="erro"></p>
@@ -29,11 +29,12 @@ export default () => {
   const user = container.querySelector('#name');
   const email = container.querySelector('#emailRegister');
   const password = container.querySelector('#password');
+
   const erroMsg = container.querySelector('#erro');
   const checkPassword = container.querySelector('#checkPassword');
-  // const btnRegister = container.querySelector("#buttonRegister");
   const imgVisi = container.querySelector('.seePassword');
 
+  // função de ver e desver senha
   imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
     if (password.type === 'password') {
@@ -43,6 +44,7 @@ export default () => {
     }
   });
 
+  // função de registrar o usuario
   container.addEventListener('submit', (e) => {
     e.preventDefault();
     if (password.value === checkPassword.value) {

@@ -1,4 +1,4 @@
-import { addPosts } from '../../firebase/firestore.js';
+// import { addPosts } from '../../firebase/firestore.js';
 import { auth } from '../../firebase/auth-firebase.js';
 
 export default () => {
@@ -16,12 +16,12 @@ export default () => {
     </section>
     <section class="menuPostMobile">
     <div class="containerImgUser">
-    <img class="imgUser" src="./pages/img/add.png">
+    <img class="imgUser" src="images/img/add.png">
     </div>
     <p>Como foi a sessão cinema?</p>
     <a href="#feed" class="btnFeed">X</a>
     <textarea id="inputPost" class="inputPost"></textarea>
-    <img src="./pages/img/addFile.png" class="addFile">
+    <img src="images/img/addFile.png" class="addFile">
     <input type="file" accept=".png, .jpg, .jpeg" class="inputFile"></input>
     <button type="submit" class="btnAddPost">Postar</button>
     </section>
@@ -31,13 +31,14 @@ export default () => {
 
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');
-  const message = container.querySelector('.inputPost');
-  const btnPost = container.querySelector('.btnAddPost');
+  // const message = container.querySelector('.inputPost');
+  // const btnPost = container.querySelector('.btnAddPost');
 
-  const user = auth.currentUser;
-  const name = user.displayName;
-  const userPhoto = user.photoURL;
+  // const user = auth.currentUser;
+  // const name = user.displayName;
+  // const userPhoto = user.photoURL;
 
+  // função de input file
   imgAddFile.addEventListener('click', () => {
     inputFile.click();
   });
