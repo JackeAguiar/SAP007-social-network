@@ -8,6 +8,7 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
+  deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { auth } from './auth-firebase.js';
 import { db } from './config-firebase.js';
@@ -20,7 +21,7 @@ export const addPosts = async (message, theme) => {
       data: new Date().toLocaleDateString('pt-BR'),
       uid: auth.currentUser.uid,
       user: auth.currentUser.displayName,
-      like: [],
+      likes: [],
       theme,
     });
     return console.log('Document written with ID: ', docRef);
@@ -42,25 +43,35 @@ export const showPosts = async () => {
   return arrayPosts;
 };
 
-export const likes = async (postId, user) => {
+export const likes = async (postId, uid) => {
   const likesPosts = doc(db, 'posts', postId);
   try {
-    await updateDoc(likesPosts, {
-      like: arrayUnion(user)
+    return await updateDoc(likesPosts, {
+      likes: arrayUnion(uid)
     });
-  } catch (error) {
-    return error
+  } catch (e) {
+    return null
   }
 }
 
-export const deslike = async (post, user) => {
-  const likesPosts = doc(db, 'posts', post.id);
+export const deslike = async (postId, uid) => {
+  const likesPosts = doc(db, 'posts', postId);
   try {
-await updateDoc(likesPosts, {
-  unlike: arrayRemove(user)
-});
-  } catch (error) {
-    return error
+    return await updateDoc(likesPosts, {
+      likes: arrayRemove(uid)
+    });
+  } catch (e) {
+    return null
   }
 }
 
+export const deletePost = async (postId) => {
+  return await deleteDoc(doc(db, 'posts', postId));
+}
+
+export const editPosts = async (postId, uid) => {
+  const editPost = doc(db, 'posts', postId)
+  return updateDoc(editPost, {
+    message,
+  })
+}
