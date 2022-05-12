@@ -14,7 +14,7 @@ body {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 15% 75% 10%;
-    background-color: #000000;
+    background-color: var(--backgroundMain);
 }
 
 header {
@@ -28,7 +28,7 @@ header img {
     width: auto;
 }
 
-li{
+header li{
     display: flex;
     list-style: none;
     align-items: center;
@@ -119,6 +119,9 @@ header h1, a {
     background-color: #313131;
     text-align: center;
     box-shadow: none;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
 }
 
 .footer,

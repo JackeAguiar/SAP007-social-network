@@ -1,0 +1,71 @@
+@import url(color.css);
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+.containerPosts{
+    padding: 2%;
+    margin: 4%;
+}
+
+.sectionPosts{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-self: start;
+    align-self: flex-start;
+}
+
+.imgUser{
+    height: 10%;
+    width: 15%;
+}
+
+.userName{
+    margin-left: auto;
+    text-align: end;
+    width: 85%;
+    margin: 0;
+    align-self: center;
+    font-weight: bold;
+}
+
+.postDate{
+    text-align: end;
+    width: 100%;
+}
+.postTheme{
+    padding: 1%;
+    text-align: center;
+    background-color: var(--button);
+    font-weight: bold;
+    border-radius: 7px;
+    white-space: pre-wrap;
+}
+
+.break{
+    width: 100%;
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postMessage{
+    width: 70%;
+    background-color: white;
+    font-family: 'Alice';
+    color: black;
+    border: 5px solid var(--post);
+    border-radius: 5px;
+    width: 100%;
+}
+
+.postLikes{
+    justify-content: end;
+}
+
+.btnPopLike{
+    background: transparent;
+    width: 10%;
+}
