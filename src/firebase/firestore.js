@@ -4,6 +4,10 @@ import {
   getDocs,
   query,
   orderBy,
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { auth } from './auth-firebase.js';
 import { db } from './config-firebase.js';
@@ -29,11 +33,34 @@ export const showPosts = async () => {
   const arrayPosts = [];
   const sortPosts = query(collection(db, 'posts'), orderBy('data'));
   const querySnapshot = await getDocs(sortPosts);
-  querySnapshot.forEach((doc) => {
-    const posts = doc.data();
-    const postId = doc.id;
+  querySnapshot.forEach((post) => {
+    const posts = post.data();
+    const postId = post.id;
     posts.id = postId;
     arrayPosts.push(posts);
   });
   return arrayPosts;
 };
+
+export const likes = async (postId, user) => {
+  const likesPosts = doc(db, 'posts', postId);
+  try {
+    await updateDoc(likesPosts, {
+      like: arrayUnion(user)
+    });
+  } catch (error) {
+    return error
+  }
+}
+
+export const deslike = async (post, user) => {
+  const likesPosts = doc(db, 'posts', post.id);
+  try {
+await updateDoc(likesPosts, {
+  unlike: arrayRemove(user)
+});
+  } catch (error) {
+    return error
+  }
+}
+

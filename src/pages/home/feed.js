@@ -35,7 +35,7 @@ export default () => {
           <button type="submit" class="btnAddPostDesk">Postar</button>
          </section>
 
-         <a href="#postMobile" class="btn">
+         <a href="#postMobile" class="btnPostHere">
          <img class="imgPosteAqui" src="images/img/postAqui.png">
          </a>
          <ul class="sectionPosts">
@@ -132,8 +132,8 @@ export default () => {
 
   const showAllPosts = async () => {
     const timeline = await showPosts();
-    timeline.forEach((user) => {
-      const postFeeds = getAllPosts(user);
+    timeline.forEach((post) => {
+      const postFeeds = getAllPosts(post);
       areaPosts.prepend(postFeeds);
     });
   };
