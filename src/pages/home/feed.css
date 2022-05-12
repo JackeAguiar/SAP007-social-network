@@ -14,7 +14,7 @@
     display: none;
 }
 
-.imgPosteAqui {
+.imgPosteAqui, .btn {
     position: fixed;
     width: 17%;
     height: auto;
@@ -56,7 +56,7 @@ input {
     padding: 1%;
 }
 
-.menuPostMobile {
+.menuPostMobile, .containerPosts {
     width: 90%;
     height: 40%;
     background-color: var(--post);

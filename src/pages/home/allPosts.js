@@ -12,13 +12,13 @@ export function getAllPosts(user) {
 
     const templateAllPosts = `
         
-            <img class="imgUser" src="images/img/add.png">
-            <h1>${user.user}</h1>
-            <p>${user.data}</p>
-            <p>${user.message}</p><br>
-            <p>${user.theme}</p><br>
-            <p>${user.likes}</p><br>
-            <button>
+            <img class="imgUser" src="images/img/add.png">    
+            <p class="userName">${user.user}</p>
+            <p class="postDate">${user.data}</p>
+            <div class="break"> <p class="postTheme">${user.theme}</p></div>
+            <p class="postMessage">${user.message}</p>
+            <p class="postLikes">${user.likes}</p>
+            <button class="btnPopLike">
             <img class="popLike" src="images/img/popTimeLogo.png">
             </button>
         
