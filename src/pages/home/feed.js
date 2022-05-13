@@ -7,8 +7,8 @@ import {
   notLogged,
 } from '../../firebase/auth-firebase.js';
 import {
-  getAllPosts
-} from './allPosts.js'
+  getAllPosts,
+} from './allPosts.js';
 
 export default () => {
   const container = document.createElement('div');

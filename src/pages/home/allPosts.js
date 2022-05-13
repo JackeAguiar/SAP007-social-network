@@ -1,24 +1,22 @@
 import {
-    auth,
+  auth,
 } from '../../firebase/auth-firebase.js';
 import {
-    likes,
-    deslike,
-    deletePost,
-    editPosts,
+  likes,
+  deslike,
+  deletePost,
+  editPosts,
 } from '../../firebase/firestore.js';
 
-
 export function getAllPosts(post) {
+  const container = document.createElement('li');
+  container.classList.add('containerPosts');
+  const userPost = post.user === auth.currentUser.displayName;
+  // const name = user.displayName;
+  // const dates = data.getMonth()
+  // const userPhoto = user.photoURL;
 
-    const container = document.createElement('li');
-    container.classList.add('containerPosts');
-    const userPost = post.user === auth.currentUser.displayName;
-    // const name = user.displayName;
-    // const dates = data.getMonth()
-    // const userPhoto = user.photoURL;
-
-    const templateAllPosts = `    
+  const templateAllPosts = `    
             <img class="imgUser" src="images/img/add.png">    
             <p class="userName">${post.user}</p>
             <p class="postDate">${post.data}</p>
@@ -34,57 +32,69 @@ export function getAllPosts(post) {
             <button class="btnEdit"><img class="imgEdit" src="images/img/edit.png"></button>
             </div>
             ` : ''}
-            `
+            <div class = "modalBack">
+            <div class = "modalEdit">
+            <span class= "close" >&times</span>
+            <P>Edite sua postagem aqui</p>
+            <textarea class="editTextarea">${post.message}</textarea>
+            <button class="saveMessege">Salvar</button>
+            </div>
+            </div>
+            `;
 
-    container.innerHTML = templateAllPosts;
+  container.innerHTML = templateAllPosts;
 
-    const btnPopLike = container.querySelector(".btnPopLike");
-    const contLikes = container.querySelector(".postLikes");
+  const btnPopLike = container.querySelector('.btnPopLike');
+  const contLikes = container.querySelector('.postLikes');
 
-    
-    btnPopLike.addEventListener('click', (e) => {
-        e.preventDefault()
-        const userLikes = post.likes
-        const postId = post.id
-        
-        if (!userLikes.includes(auth.currentUser.uid)) {
-            likes(postId, auth.currentUser.uid)
-            .then(() => {
-                userLikes.push((auth.currentUser.uid))
-                const addLikeNum = Number(contLikes.innerHTML) + 1;
-                contLikes.innerHTML = addLikeNum
-            })
-        } else {
-            deslike(postId, auth.currentUser.uid)
-            .then(() => {
-                userLikes.splice(auth.currentUser.uid);
-                const addLikeNum = Number(contLikes.innerHTML) - 1;
-                contLikes.innerHTML = addLikeNum;
-            })
-        }
-    })
-    
-    if(userPost){
-        const btnDelet = container.querySelector(".btnDelet");
-        btnDelet.addEventListener('click', (e) => {
-            e.preventDefault()
-            const confirme = confirm("Deseja realmente excluir sua postagem?")
-            if(confirme === true){
-                deletePost(post.id)
-            }else{
-                console.log(confirme)
-            }
-        })
+  btnPopLike.addEventListener('click', (e) => {
+    e.preventDefault();
+    const userLikes = post.likes;
+    const postId = post.id;
+
+    if (!userLikes.includes(auth.currentUser.uid)) {
+      likes(postId, auth.currentUser.uid)
+        .then(() => {
+          userLikes.push((auth.currentUser.uid));
+          const addLikeNum = Number(contLikes.innerHTML) + 1;
+          contLikes.innerHTML = addLikeNum;
+        });
+    } else {
+      deslike(postId, auth.currentUser.uid)
+        .then(() => {
+          userLikes.splice(auth.currentUser.uid);
+          const addLikeNum = Number(contLikes.innerHTML) - 1;
+          contLikes.innerHTML = addLikeNum;
+        });
     }
-    
-    if(userPost){
-        const btnEdit = container.querySelector(".btnEdit");
-        btnEdit.addEventListener('click', (e) => {
-            e.preventDefault()
-            editPosts(post.id)
-        })
+  });
 
-    }
+  if (userPost) {
+    const btnDelet = container.querySelector('.btnDelet');
+    btnDelet.addEventListener('click', (e) => {
+      e.preventDefault();
+      const confirme = confirm('Deseja realmente excluir sua postagem?');
+      if (confirme === true) {
+        deletePost(post.id);
+      } else {
+        console.log(confirme);
+      }
+    });
+  }
 
-    return container;
+  if (userPost) {
+    const modal = container.querySelector('.modalBack');
+    const btnEdit = container.querySelector('.btnEdit');
+    const close = container.querySelector('.close');
+    btnEdit.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.style.display = 'block';
+      // editPosts(post.id)
+    });
+    close.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  }
+
+  return container;
 }

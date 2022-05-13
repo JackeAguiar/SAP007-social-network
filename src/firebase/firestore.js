@@ -47,31 +47,29 @@ export const likes = async (postId, uid) => {
   const likesPosts = doc(db, 'posts', postId);
   try {
     return await updateDoc(likesPosts, {
-      likes: arrayUnion(uid)
+      likes: arrayUnion(uid),
     });
   } catch (e) {
-    return null
+    return null;
   }
-}
+};
 
 export const deslike = async (postId, uid) => {
   const likesPosts = doc(db, 'posts', postId);
   try {
     return await updateDoc(likesPosts, {
-      likes: arrayRemove(uid)
+      likes: arrayRemove(uid),
     });
   } catch (e) {
-    return null
+    return null;
   }
-}
+};
 
-export const deletePost = async (postId) => {
-  return await deleteDoc(doc(db, 'posts', postId));
-}
+export const deletePost = async (postId) => await deleteDoc(doc(db, 'posts', postId));
 
 export const editPosts = async (postId, uid) => {
-  const editPost = doc(db, 'posts', postId)
+  const editPost = doc(db, 'posts', postId);
   return updateDoc(editPost, {
     message,
-  })
-}
+  });
+};
