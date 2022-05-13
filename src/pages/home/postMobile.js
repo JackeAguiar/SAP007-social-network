@@ -1,5 +1,5 @@
 // import { addPosts } from '../../firebase/firestore.js';
-import { auth } from '../../firebase/auth-firebase.js';
+// import { auth } from '../../firebase/auth-firebase.js';
 
 export default () => {
   const container = document.createElement('div');

@@ -125,9 +125,7 @@ export default () => {
         window.location.hash = '#login';
         nav.classList.remove('active');
         btnMenu.classList.add('out');
-      }).catch((error) => {
-        error;
-      });
+      }).catch((error) => error);
   });
 
   const showAllPosts = async () => {
