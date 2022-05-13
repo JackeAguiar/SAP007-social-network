@@ -21,6 +21,7 @@
     bottom: 15%;
     right: 5%;
     max-width: 75px;
+    z-index: 3;
 }
 
 .containerFeedMobile {

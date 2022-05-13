@@ -1,5 +1,5 @@
 import {
-  addPosts
+  addPosts,
 } from '../../firebase/firestore.js';
 
 export default () => {
