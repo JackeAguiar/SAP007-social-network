@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
 .containerPosts{
     padding: 2%;
@@ -34,60 +35,101 @@
     text-align: end;
     width: 100%;
 }
+
 .postTheme{
     padding: 1%;
-    text-align: center;
+    text-align: start;
     background-color: var(--button);
     font-weight: bold;
     border-radius: 7px;
     white-space: pre-wrap;
+    font-size: 0.7rem;
 }
 
 .break{
     width: 100%;
     margin: 1%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: flex-start;
 }
 
 .postMessage{
-    width: 70%;
-    background-color: white;
-    font-family: 'Alice';
-    color: black;
+    max-width: 80%;
+    height: 30%;
+    background-color: var(--post);
+    font-family: 'Nunito';
+    color: var(--fontColor);
     border: 5px solid var(--post);
     border-radius: 5px;
     width: 100%;
+    text-align: start;
 }
 
 .postLikes{
-    justify-content: end;
+    justify-self: end;
+    margin-left: auto;
+    text-align: center;
 }
 
 .btnPopLike{
     background: transparent;
     width: 10%;
+    margin-left: auto;
 }
 
-.modalBack{
-    display:none;
-    position: fixed;
-    z-index: 1;
+.popLike{
+    width: 100%;
+    height: auto;
+}
+
+.postUser{
+    margin-left: auto;
+    display: flex;
+    gap: 10%;
+}
+
+.btnDelet, .btnEdit{
+    width: 20%;
+    height: auto;
+    background-color: transparent;
+}
+
+.btnEdit {
+    margin-left: auto;
+}
+.imgDelet, .imgEdit{
+    width: 100%;
+    height: auto;
+}
+
+.modalDeletBack{
+    display: none;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: var(--back-modal);
+    background: var(--modalDeletBack);
+    z-index: 1;
+    position: fixed;
+    left:0;
+    top:0;
     padding-top: 20%;
+    overflow: auto;
 }
 
-.modalEdit{
+.modalDelet{
+    background-color: var(--post);
     margin: auto;
+    padding: 2%;
+    border-radius: 10px;
+    border: 1px solid var(--body);
     width: 80%;
-    background-color: var(--modal);
-    color: black;
+    color: var(--fontColor);
 }
 
-.close{
-    color: black;
+.btnDeletConfirm, .btnDeletCancel{
+    background-color: var(--button);
+    color: var(--fontColor);
+    width: auto;
+    padding: 1%;
+    border-radius: 10px;
 }
