@@ -103,7 +103,7 @@
     height: auto;
 }
 
-.modalDeletBack{
+.modalDeletBack, .modalEditBack{
     display: none;
     width: 100%;
     height: 100%;
@@ -116,7 +116,7 @@
     overflow: auto;
 }
 
-.modalDelet{
+.modalDelet, .modalEdit {
     background-color: var(--post);
     margin: auto;
     padding: 2%;
@@ -126,10 +126,15 @@
     color: var(--fontColor);
 }
 
-.btnDeletConfirm, .btnDeletCancel{
+.btnDeletConfirm, .btnDeletCancel,.btnEditConfirm, .btnEditCancel{
     background-color: var(--button);
     color: var(--fontColor);
     width: auto;
     padding: 1%;
     border-radius: 10px;
 }
+    .editTextarea{
+        width: 80%;
+        resize: none;
+        
+    }

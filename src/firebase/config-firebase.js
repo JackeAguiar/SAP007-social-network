@@ -1,6 +1,5 @@
-// eslint-disable-next-line
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";// eslint-disable-line
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';// eslint-disable-line
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCemQ-w-0HGmEOPIReFIFOhiwToyyzsd4A',

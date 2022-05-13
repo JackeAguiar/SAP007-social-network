@@ -9,7 +9,7 @@ import {
   arrayUnion,
   arrayRemove,
   deleteDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+} from './exports.js';
 import { auth } from './auth-firebase.js';
 import { db } from './config-firebase.js';
 
@@ -65,9 +65,10 @@ export const deslike = async (postId, uid) => {
   }
 };
 
+// eslint-disable-next-line no-return-await
 export const deletePost = async (postId) => await deleteDoc(doc(db, 'posts', postId));
 
-export const editPosts = async (postId, uid) => {
+export const editPosts = async (postId, message) => {
   const editPost = doc(db, 'posts', postId);
   return updateDoc(editPost, {
     message,
