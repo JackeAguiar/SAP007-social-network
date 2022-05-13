@@ -76,7 +76,7 @@ header .hamburguer{
 nav.active .menuFeed{
     visibility: visible;
     overflow-y: auto;
-    height: calc(100vh - 15vh - 10vh);
+    height: calc(100vh - 15vh);
 }
 
 .menuFeed{
@@ -88,7 +88,7 @@ nav.active .menuFeed{
     background: #313131;
     height: 0vh;
     transition: .6s;
-    z-index: 1000;
+    z-index: 4;
     visibility: hidden;
     overflow-y: hidden;
 }
@@ -118,10 +118,13 @@ header h1, a {
     align-items: center;
     background-color: #313131;
     text-align: center;
-    box-shadow: none;
-    bottom: 0;
+    box-shadow:  0 0 1em var(--body);
     position: fixed;
+    bottom: 0;
     width: 100%;
+    z-index:5;
+    padding: 1vh;
+    font-size: 0.9rem;
 }
 
 .footer,

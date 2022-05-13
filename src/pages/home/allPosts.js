@@ -41,30 +41,38 @@ export function getAllPosts(post) {
   container.innerHTML = templateAllPosts;
 
   const btnPopLike = container.querySelector('.btnPopLike');
-  const contLikes = container.querySelector('.postLikes');
-  const deletModal = container.querySelector('.modalDeletBack');
   const btnDeletCancel = container.querySelector('.btnDeletCancel');
   const btnDeletConfirm = container.querySelector('.btnDeletConfirm');
-
+  
+  const contLikes = container.querySelector('.postLikes');
+  const userLikes = post.likes;
+  const imgPopLike = container.querySelector('.popLike');
+  const deletModal = container.querySelector('.modalDeletBack');
+  
+  if (!userLikes.includes(auth.currentUser.uid)) {
+    imgPopLike.classList.add('noLikes');
+  }
+  
   btnPopLike.addEventListener('click', (e) => {
     e.preventDefault();
-    const userLikes = post.likes;
     const postId = post.id;
-
+    
     if (!userLikes.includes(auth.currentUser.uid)) {
       likes(postId, auth.currentUser.uid)
-        .then(() => {
-          userLikes.push((auth.currentUser.uid));
-          const addLikeNum = Number(contLikes.innerHTML) + 1;
-          contLikes.innerHTML = addLikeNum;
-        });
+      .then(() => {
+        imgPopLike.classList.remove('noLikes');
+        userLikes.push((auth.currentUser.uid));
+        const addLikeNum = Number(contLikes.innerHTML) + 1;
+        contLikes.innerHTML = addLikeNum;
+      });
     } else {
       deslike(postId, auth.currentUser.uid)
-        .then(() => {
-          userLikes.splice(auth.currentUser.uid);
-          const addLikeNum = Number(contLikes.innerHTML) - 1;
-          contLikes.innerHTML = addLikeNum;
-        });
+      .then(() => {
+        imgPopLike.classList.add('noLikes');
+        userLikes.splice(auth.currentUser.uid);
+        const addLikeNum = Number(contLikes.innerHTML) - 1;
+        contLikes.innerHTML = addLikeNum;
+      });
     }
   });
 
@@ -78,11 +86,12 @@ export function getAllPosts(post) {
       e.preventDefault();
       deletModal.style.display = 'none';
     });
-    btnDeletConfirm.addEventListener('click', () =>{
+    btnDeletConfirm.addEventListener('click', () => {
       deletePost(post.id)
-      .then(() =>{
+      .then(() => {
+        container.remove();
         deletModal.style.display = 'none';
-      })
+      });
     });
   }
 

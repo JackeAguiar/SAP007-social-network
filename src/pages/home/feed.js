@@ -13,6 +13,8 @@ import {
 export default () => {
   const container = document.createElement('div');
   container.classList.add('containerFeed');
+  const btnHamb = document.querySelector('.btnMobile');
+  btnHamb.classList.remove('out');
 
   const templateFeed = `
 

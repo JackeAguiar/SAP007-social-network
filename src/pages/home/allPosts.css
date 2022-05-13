@@ -54,6 +54,11 @@
     align-items: flex-start;
 }
 
+.postDate{
+    font-size: 0.7rem;
+    font-family: 'Nunito';
+}
+
 .postMessage{
     max-width: 80%;
     height: 30%;
@@ -68,14 +73,14 @@
 
 .postLikes{
     justify-self: end;
-    margin-left: auto;
+    margin: auto;
     text-align: center;
 }
 
 .btnPopLike{
     background: transparent;
     width: 10%;
-    margin-left: auto;
+    margin: auto;
 }
 
 .popLike{
@@ -98,6 +103,11 @@
 .btnEdit {
     margin-left: auto;
 }
+
+.btnDelet{
+    margin-right: 3%;
+}
+
 .imgDelet, .imgEdit{
     width: 100%;
     height: auto;
@@ -132,4 +142,8 @@
     width: auto;
     padding: 1%;
     border-radius: 10px;
+}
+
+.noLikes{
+    filter: grayscale(1);
 }
