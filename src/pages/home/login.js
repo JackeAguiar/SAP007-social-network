@@ -86,7 +86,6 @@ export default () => {
     googleLogIn()
       .then(() => {
         window.location.hash = '#feed';
-        btnMenu.classList.remove('out');
       })
       .catch((error) => {
         const errorMessage = error.message;

@@ -52,8 +52,7 @@ export function getAllPosts(post) {
   container.innerHTML = templateAllPosts;
 
   const btnPopLike = container.querySelector('.btnPopLike');
-  const contLikes = container.querySelector('.postLikes');
-  
+
   const textArea = container.querySelector('.editTextarea');
   const modal = container.querySelector('.modalEditBack');
   const close = container.querySelector('.close');
@@ -65,14 +64,22 @@ export function getAllPosts(post) {
   const btnDeletCancel = container.querySelector('.btnDeletCancel');
   const btnDeletConfirm = container.querySelector('.btnDeletConfirm');
 
+  const contLikes = container.querySelector('.postLikes');
+  const userLikes = post.likes;
+  const imgPopLike = container.querySelector('.popLike');
+
+  if (!userLikes.includes(auth.currentUser.uid)) {
+    imgPopLike.classList.add('noLikes');
+  }
+
   btnPopLike.addEventListener('click', (e) => {
     e.preventDefault();
-    const userLikes = post.likes;
     const postId = post.id;
 
     if (!userLikes.includes(auth.currentUser.uid)) {
       likes(postId, auth.currentUser.uid)
         .then(() => {
+          imgPopLike.classList.remove('noLikes');
           userLikes.push((auth.currentUser.uid));
           const addLikeNum = Number(contLikes.innerHTML) + 1;
           contLikes.innerHTML = addLikeNum;
@@ -80,6 +87,7 @@ export function getAllPosts(post) {
     } else {
       deslike(postId, auth.currentUser.uid)
         .then(() => {
+          imgPopLike.classList.add('noLikes');
           userLikes.splice(auth.currentUser.uid);
           const addLikeNum = Number(contLikes.innerHTML) - 1;
           contLikes.innerHTML = addLikeNum;
@@ -100,6 +108,7 @@ export function getAllPosts(post) {
     btnDeletConfirm.addEventListener('click', () => {
       deletePost(post.id)
         .then(() => {
+          container.remove();
           deletModal.style.display = 'none';
         });
     });
@@ -117,7 +126,7 @@ export function getAllPosts(post) {
       e.preventDefault();
       modal.style.display = 'none';
     });
-    btnEditConfirm.addEventListener('click', async() => {
+    btnEditConfirm.addEventListener('click', async () => {
       const message = textArea.value;
       await editPosts(post.id, message)
         .then(() => {

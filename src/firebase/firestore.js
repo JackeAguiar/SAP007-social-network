@@ -18,7 +18,7 @@ export const addPosts = async (message, theme) => {
     const docRef = await addDoc(collection(db, 'posts'), {
       userEmail: auth.currentUser.email,
       message,
-      data: new Date().toLocaleDateString('pt-BR'),
+      data: new Date().toLocaleString(),
       uid: auth.currentUser.uid,
       user: auth.currentUser.displayName,
       likes: [],
