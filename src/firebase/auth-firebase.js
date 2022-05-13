@@ -23,9 +23,7 @@ export function userRegister(email, password, displayName) {
           const user = userCredential.user;
           return user;
         })
-        .catch((error) => {
-          error;
-        });
+        .catch((error) => error);
     });
 }
 
