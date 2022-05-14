@@ -13,7 +13,7 @@ import {
 import { auth } from './auth-firebase.js';
 import { db } from './config-firebase.js';
 
-export const addPosts = async (message, theme) => {
+export const addPosts = async (message, theme, subirImgPost) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       userEmail: auth.currentUser.email,
@@ -23,6 +23,7 @@ export const addPosts = async (message, theme) => {
       user: auth.currentUser.displayName,
       likes: [],
       theme,
+      imgPosts: subirImgPost,
     });
     return console.log('Document written with ID: ', docRef);
   } catch (e) {
