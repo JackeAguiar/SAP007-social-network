@@ -152,3 +152,81 @@
     width: 80%;
     resize: none;     
 }
+
+.imgAllPosts{
+    height: auto;
+    width: 40%;
+}
+
+.imgAllPosts[src="null"]{
+    display: none;
+}
+
+@media (min-device-width:900px){
+    .containerPosts{
+        width: 60%;
+        height: auto;
+        margin: 2% auto;
+    }
+
+    .imgUser{
+        height: 20%;
+        width: auto;
+    }
+
+    .userName{
+        width: auto;
+        margin-left: auto;
+    }
+
+    .postLikes{
+        height: 10%;
+        width: 10%;
+        margin: auto;
+        text-align: end;
+    }
+
+    .postMessage{
+        margin-bottom: 2%;
+    }
+
+    .btnPopLike{
+        height: 20%;
+        width: auto;
+    }
+
+    .popLike{
+        height: 100%;
+        width: auto;
+    }
+
+    .btnDelet, .btnEdit{
+        height: 100%;
+        width: 25%;
+    }
+
+    .modalDelet, .modalEdit{
+        width: 50%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .descDel{
+        width: 100%;
+        text-align: center;
+    }
+
+    .btnDeletConfirm, .btnDeletCancel, .btnEditConfirm, .btnEditCancel{
+        margin: 5% 2% 2% 2%;
+    }
+
+    .editTextarea{
+        margin: 3% 5%;
+        width: 100%;
+        border-radius: 5px;
+        padding: 1%;
+    }
+}

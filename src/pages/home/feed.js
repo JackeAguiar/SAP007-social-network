@@ -9,6 +9,9 @@ import {
 import {
   getAllPosts,
 } from './allPosts.js';
+import {
+  subirFileStore,
+} from '../../firebase/storage.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -24,7 +27,7 @@ export default () => {
           </div>
           <p>Como foi a sessão cinema?</p>
           <button class="btnClean">X</button>
-          <textarea id="inputPost" class="inputPost"></textarea>
+          <textarea id="inputPost" class="inputPost" maxlength = "1036"></textarea>
           <p id="error" class="error"></p>
           <input type="checkbox" class="inputDesk" id="critica" name="theme" value="Critica">
           <label  class="topicDesk" for="critica">Crítica</label>  
@@ -91,8 +94,10 @@ export default () => {
   btnPost.addEventListener('click', async (e) => {
     e.preventDefault();
     const valueMessage = message.value;
+    const imgPosts = container.querySelector('.inputFile').files[0];
     const errorMessage = 'É necessário preencher o campo de mensagem.';
     const errorTheme = 'É necessário adicionar um tema de postagem.';
+    const errorCarac = 'A mensagem é muito grande';
     const arrayTheme = [];
 
     if (themesCri.checked === true) {
@@ -114,8 +119,13 @@ export default () => {
     } else if
     ((themesCri.checked === false && themesOn.checked === false && themesRes.checked === false)) {
       errorPost.innerHTML = errorTheme;
+    } else if (valueMessage.length > 1036) {
+      errorPost.innerHTML = errorCarac;
+    } else if (imgPosts === null) {
+      await addPosts(valueMessage, theme, '');
     } else {
-      await addPosts(valueMessage, theme);
+      const subirImgPost = await subirFileStore(imgPosts, 'imgPosts');
+      await addPosts(valueMessage, theme, subirImgPost);
     }
   });
 

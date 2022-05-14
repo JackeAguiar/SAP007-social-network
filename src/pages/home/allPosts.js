@@ -13,17 +13,20 @@ export function getAllPosts(post) {
   const container = document.createElement('li');
   container.classList.add('containerPosts');
   const userPost = post.user === auth.currentUser.displayName;
-
-  const templateAllPosts = `    
+  
+  const templateAllPosts = `
+              
             <img class="imgUser" src="images/img/add.png">    
             <p class="userName">${post.user}</p>
             <p class="postDate">${post.data}</p>
             <div class="break"> <p class="postTheme">${post.theme}</p></div>
             <p class="postMessage">${post.message}</p>
+            <img class="imgAllPosts" src="${post.imgPosts}">
             <p class="postLikes" >${post.likes.length}</p>
             <button class="btnPopLike">
             <img class="popLike" src="images/img/popTimeLogo.png">
             </button>
+            
             ${userPost ? `
             <div class="postUser">
             <button class="btnEdit"><img class="imgEdit" src="images/img/edit.png"></button>
@@ -32,7 +35,6 @@ export function getAllPosts(post) {
             ` : ''}
             <div class = "modalEditBack">
             <div class = "modalEdit">
-            <span class= "close" >&times</span>
             <P>Edite sua postagem aqui</p>
             <textarea class="editTextarea">${post.message}</textarea>
             <button class="btnEditConfirm">Confirmar</button>
@@ -42,27 +44,26 @@ export function getAllPosts(post) {
             
             <div class="modalDeletBack">
             <div class="modalDelet">
-            <p>Deseja realmente apagar sua postagem?</p>
+            <p class="descDel">Deseja realmente apagar sua postagem?</p>
             <button class="btnDeletConfirm">Confirmar</button>
             <button class="btnDeletCancel">Cancelar</button>
             </div>
             </div>
             `;
 
-  container.innerHTML = templateAllPosts;
-
-  const btnPopLike = container.querySelector('.btnPopLike');
-
-  const textArea = container.querySelector('.editTextarea');
-  const modal = container.querySelector('.modalEditBack');
-  const close = container.querySelector('.close');
-  const btnEdit = container.querySelector('.btnEdit');
-  const btnEditConfirm = container.querySelector('.btnEditConfirm');
-  const btnEditCancel = container.querySelector('.btnEditCancel');
-
-  const deletModal = container.querySelector('.modalDeletBack');
-  const btnDeletCancel = container.querySelector('.btnDeletCancel');
-  const btnDeletConfirm = container.querySelector('.btnDeletConfirm');
+            container.innerHTML = templateAllPosts;
+            
+            const btnPopLike = container.querySelector('.btnPopLike');
+            const btnEdit = container.querySelector('.btnEdit');
+            const btnEditConfirm = container.querySelector('.btnEditConfirm');
+            const btnEditCancel = container.querySelector('.btnEditCancel');
+            const btnDeletCancel = container.querySelector('.btnDeletCancel');
+            const btnDeletConfirm = container.querySelector('.btnDeletConfirm');
+            
+            const textArea = container.querySelector('.editTextarea');
+            const modal = container.querySelector('.modalEditBack');
+            
+            const deletModal = container.querySelector('.modalDeletBack');
 
   const contLikes = container.querySelector('.postLikes');
   const userLikes = post.likes;
@@ -119,9 +120,6 @@ export function getAllPosts(post) {
       e.preventDefault();
       modal.style.display = 'block';
     });
-    close.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
     btnEditCancel.addEventListener('click', (e) => {
       e.preventDefault();
       modal.style.display = 'none';
@@ -134,6 +132,7 @@ export function getAllPosts(post) {
         });
     });
   }
+
 
   return container;
 }
