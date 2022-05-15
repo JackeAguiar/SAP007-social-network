@@ -9,6 +9,10 @@
     margin: 4%;
 }
 
+.newPost{
+    display: none;
+}
+
 .sectionPosts{
     display: flex;
     flex-wrap: wrap;
@@ -159,6 +163,15 @@
 }
 
 @media (min-device-width:900px){
+
+    .newPost{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-self: start;
+        align-self: flex-start;
+    }
+
     .containerPosts{
         width: 60%;
         height: auto;

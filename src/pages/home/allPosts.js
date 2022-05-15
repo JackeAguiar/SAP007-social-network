@@ -59,6 +59,7 @@ export function getAllPosts(post) {
   const btnEditCancel = container.querySelector('.btnEditCancel');
   const btnDeletCancel = container.querySelector('.btnDeletCancel');
   const btnDeletConfirm = container.querySelector('.btnDeletConfirm');
+  const messagePost = container.querySelector('.postMessage');
 
   const textArea = container.querySelector('.editTextarea');
   const modal = container.querySelector('.modalEditBack');
@@ -129,8 +130,10 @@ export function getAllPosts(post) {
       await editPosts(post.id, message)
         .then(() => {
           modal.style.display = 'none';
+          messagePost.innerHTML = message;
         });
     });
   }
+
   return container;
 }
