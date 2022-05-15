@@ -4,6 +4,7 @@ import {
 } from '../../firebase/firestore.js';
 import {
   notLogged,
+  auth,
 } from '../../firebase/auth-firebase.js';
 import {
   getAllPosts,
@@ -11,6 +12,9 @@ import {
 import {
   subirFileStore,
 } from '../../firebase/storage.js';
+import {
+  doc,
+} from '../../firebase/exports.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -42,13 +46,22 @@ export default () => {
          <a href="#postMobile" class="btnPostHere">
          <img class="imgPosteAqui" src="images/img/postAqui.png">
          </a>
+         <ul class="newPost">
+         </ul>
          <ul class="sectionPosts">
          </ul>
       `;
   container.innerHTML = templateFeed;
 
+  const user = auth.currentUser;
+  const name = user.displayName;
+  const userPhoto = user.photoURL;
+  console.log(name);
+  console.log(userPhoto);
+
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');
+  const newPost = container.querySelector('.newPost');
 
   const message = container.querySelector('.inputPost');
   const errorPost = container.querySelector('.error');
@@ -118,7 +131,21 @@ export default () => {
       await addPosts(valueMessage, theme, '');
     } else {
       const subirImgPost = await subirFileStore(imgPosts, 'imgPosts');
-      await addPosts(valueMessage, theme, subirImgPost);
+      await addPosts(valueMessage, theme, subirImgPost).then((id) => {
+        const post = {
+          userEmail: auth.currentUser.email,
+          message: valueMessage,
+          data: new Date().toLocaleString(),
+          uid: auth.currentUser.uid,
+          user: auth.currentUser.displayName,
+          likes: [],
+          id,
+          theme,
+          imgPosts: subirImgPost,
+        };
+        newPost.prepend(getAllPosts(post));
+        message.value = '';
+      });
     }
   });
 

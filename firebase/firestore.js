@@ -25,7 +25,7 @@ export const addPosts = async (message, theme, subirImgPost) => {
       theme,
       imgPosts: subirImgPost,
     });
-    return docRef;
+    return docRef.id;
   } catch (e) {
     return e;
   }
