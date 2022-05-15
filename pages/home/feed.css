@@ -3,29 +3,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
-.containerFeed{
+.containerFeed {
     display: flex;
     padding: 2%;
 }
+
 /* Mobile começa aqui*/
 
-.postDesktop{
+.postDesktop {
     display: none;
 }
 
-.imgPosteAqui{
+.imgPosteAqui, .btnPostHere {
     position: fixed;
     width: 17%;
     height: auto;
     bottom: 15%;
     right: 5%;
     max-width: 75px;
+    z-index: 3;
 }
 
-.containerFeedMobile{
+.containerFeedMobile {
     margin-top: 2%;
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +37,7 @@
     font-size: 0.7rem;
 }
 
-.topicsPost{
+.topicsPost {
     display: inline-flex;
     width: 100%;
     height: 4%;
@@ -44,18 +46,18 @@
     margin-bottom: 5%;
 }
 
-input{
+input {
     margin-right: 2%;
 }
 
-.topic{
+.topic {
     margin-right: 5%;
     background-color: var(--button);
     border-radius: 20px;
     padding: 1%;
 }
 
-.menuPostMobile{
+.menuPostMobile, .containerPosts {
     width: 90%;
     height: 40%;
     background-color: var(--post);
@@ -64,7 +66,7 @@ input{
     flex-wrap: wrap;
 }
 
-.containerImgUser{
+.containerImgUser {
     width: 50px;
     height: 50px;
     border: 1px solid var(--body);
@@ -72,12 +74,12 @@ input{
     margin: 2%;
 }
 
-.menuPostMobile p{
+.menuPostMobile p {
     align-self: flex-end;
     margin-bottom: 2%;
 }
 
-.btnFeed{
+.btnFeed {
     width: 10%;
     height: 10%;
     justify-content: flex-end;
@@ -86,7 +88,7 @@ input{
     font-family: 'Comfortaa', cursive;
 }
 
-.inputPost{
+.inputPost {
     width: 100%;
     height: 40%;
     margin: 0% 2%;
@@ -95,49 +97,60 @@ input{
     resize: none;
 }
 
-.addFile{
+.postLikes{
+    text-align: center;
+}
+
+.addFile {
     margin: 2%;
-    width: auto;
-    height: 15%;
+    width: 8%;
+    height: auto;
 }
 
-.inputFile{
-    display:none;
+.inputFile {
+    display: none;
+    height: auto;
+    width: 100%;
 }
 
-.btnAddPost{
+.btnAddPost {
     width: 15%;
     height: 15%;
     background-color: var(--button);
     border-radius: 20px;
     margin: 2% 2% 2% auto;
     align-self: flex-end;
+    padding: 1%;
 }
 
-@media (min-device-width:500px){
-    .containerFeedMobile{
+.error{
+    margin: auto;
+}
+
+@media (min-device-width:500px) {
+    .containerFeedMobile {
         font-size: 1rem;
     }
 
-    input[type=checkbox]{
+    input[type=checkbox] {
         transform: scale(1.5)
     }
 }
 
-@media (min-device-width:900px){
-    .imgPosteAqui{
+@media (min-device-width:900px) {
+    .imgPosteAqui {
         display: none;
     }
 
-    .containerFeed{
+    .containerFeed {
         width: 100%;
-        height: 100%;
+        height: fit-content;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .postDesktop{
+    .postDesktop {
         display: inline-flex;
         width: 60%;
         background-color: var(--post);
@@ -147,7 +160,7 @@ input{
         font-family: 'Comfortaa', cursive;
     }
 
-    .containerImgUserDesk{
+    .containerImgUserDesk {
         width: 55px;
         height: 55px;
         border: 1px solid var(--body);
@@ -155,12 +168,12 @@ input{
         margin: 0% 2% 2% 0%;
     }
 
-    .postDesktop p{
+    .postDesktop p {
         align-self: flex-end;
         margin-bottom: 2%;
     }
 
-    .btnClean{
+    .btnClean {
         align-self: flex-start;
         margin: 0% 0% 0% auto;
         font-size: 1.3rem;
@@ -169,34 +182,44 @@ input{
         background-color: transparent;
     }
 
-    .inputPostDesk{
+    .inputPostDesk {
         width: 90%;
         margin: 0% auto;
     }
 
-    input{
+    input {
         justify-self: flex-start;
         align-self: flex-end;
         margin: 2% 1% 3% 0%;
     }
 
-    .topicDesk{
+    .topicDesk {
         justify-self: flex-start;
         align-self: flex-end;
-        margin:2% 2% 2.5% 0%;
+        margin: 2% 2% 2.5% 0%;
     }
 
-    .addFile{
-        margin: 2% 1% 0% auto;
+    .addFile {
+        margin: auto 0% auto auto;
+        height: auto;
+        width: 4%;
     }
 
-    .btnAddPostDesk{
-        margin: 2%;
-        width: 15%;
-        height: 15%;
+    .btnAddPostDesk {
+        margin: auto 2%;
+        width: 10%;
+        height: auto;
+        font-size: 1rem;
         background-color: var(--button);
         border-radius: 20px;
         align-self: flex-end;
+        justify-self: end;
+        padding: 1%;
+    }
+
+    .error {
+        width: 100%;
+        margin-top: 2%;
     }
 }
 

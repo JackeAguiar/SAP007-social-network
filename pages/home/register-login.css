@@ -5,7 +5,6 @@
 }
 
 main {
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -25,6 +24,8 @@ main {
 .containerLogin,
 .containerFPasswword,
 .containerRegister {
+    margin: auto;
+    margin-top: auto;
     height: 100%;
     width: 100%;
     display: flex;
@@ -124,10 +125,6 @@ main {
     justify-self: end;
 }
 
-.formFPassword button {
-    margin: 0% auto;
-}
-
 button {
     height: 100%;
     width: 100%;
@@ -136,11 +133,18 @@ button {
     cursor: pointer;
 }
 
+.formFPassword button {
+    margin: 0% auto;
+}
+
+
 .button-register-lo {
     height: 80%;
 }
 
-.formFPassword p, .formLogIn p, .formRegister p {
+.formFPassword p,
+.formLogIn p,
+.formRegister p {
     text-align: center;
     width: 100%;
 }
@@ -151,6 +155,7 @@ button {
     .containerLogin,
     .containerRegister,
     .containerFPasswword {
+        margin-top: 2%;
         border: 1px solid black;
         border-radius: 20px;
         height: 90%;
@@ -159,6 +164,8 @@ button {
         box-shadow: 0 0 1em gray;
         max-width: 500px;
         max-height: 600px;
+        align-self: center;
+        justify-self: center;
     }
 
     .formLogIn label {

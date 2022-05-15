@@ -11,19 +11,19 @@ export default () => {
     <div class="carrosel">
     <ul>
       <li>
-        <img class="imgCarrosel" src="./pages/img/interestelar.jpg">
+        <img class="imgCarrosel" src="images/img/interestelar.jpg">
       </li>
       <li>
-        <img class="imgCarrosel" src="./pages/img/breackingbad.jpg">
+        <img class="imgCarrosel" src="images/img/breackingbad.jpg">
       </li>
       <li>
-        <img class="imgCarrosel" src="./pages/img/coraline.jpg">
+        <img class="imgCarrosel" src="images/img/coraline.jpg">
       </li>
       <li>
-        <img class="imgCarrosel" src="./pages/img/harrypotter.jpg">
+        <img class="imgCarrosel" src="images/img/harrypotter.jpg">
       </li>
       <li>
-        <img class="imgCarrosel" src="./pages/img/peakyblinders.jpg">
+        <img class="imgCarrosel" src="images/img/peakyblinders.jpg">
       </li>
     </ul>
   </div>

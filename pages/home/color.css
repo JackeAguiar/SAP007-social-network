@@ -1,5 +1,8 @@
-:root{
+:root {
     --post: #262728;
     --body: #000000;
     --button: #CC2B26;
+    --backgroundMain: #131415;
+    --modalDeletBack: #00000066;
+    --fontColor: #ffffff;
 }

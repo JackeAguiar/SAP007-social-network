@@ -1,0 +1,228 @@
+@import url(color.css);
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');/*eslint-disable-line*/
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');/*eslint-disable-line*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');/*eslint-disable-line*/
+
+
+.containerPosts{
+    padding: 2%;
+    margin: 4%;
+}
+
+.sectionPosts{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-self: start;
+    align-self: flex-start;
+}
+
+.imgUser{
+    height: 10%;
+    width: 15%;
+}
+
+.userName{
+    margin: 0 0 0 auto;
+    text-align: end;
+    width: 85%;
+    align-self: center;
+    font-weight: bold;
+}
+
+.postDate{
+    text-align: end;
+    width: 100%;
+    font-size: 0.7rem;
+    font-family: 'Nunito',  Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.postTheme{
+    padding: 1%;
+    text-align: start;
+    background-color: var(--button);
+    font-weight: bold;
+    border-radius: 7px;
+    white-space: pre-wrap;
+    font-size: 0.7rem;
+}
+
+.break{
+    width: 100%;
+    margin: 1%;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.postMessage{
+    max-width: 80%;
+    height: 30%;
+    background-color: var(--post);
+    font-family: 'Nunito', Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--fontColor);
+    border: 5px solid var(--post);
+    border-radius: 5px;
+    width: 100%;
+    text-align: start;
+}
+
+.postLikes{
+    justify-self: end;
+    margin: auto;
+    text-align: center;
+}
+
+.btnPopLike{
+    background: transparent;
+    width: 10%;
+    margin: auto;
+}
+
+.popLike{
+    width: 100%;
+    height: auto;
+}
+
+.postUser{
+    margin-left: auto;
+    display: flex;
+    gap: 10%;
+}
+
+.btnDelet, .btnEdit{
+    width: 20%;
+    height: auto;
+    background-color: transparent;
+}
+
+.btnEdit {
+    margin-left: auto;
+}
+
+.btnDelet{
+    margin-right: 3%;
+}
+
+.imgDelet, .imgEdit{
+    width: 100%;
+    height: auto;
+}
+
+.modalDeletBack, .modalEditBack{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: var(--modalDeletBack);
+    z-index: 1;
+    position: fixed;
+    left:0;
+    top:0;
+    padding-top: 20%;
+    overflow: auto;
+}
+
+.modalDelet, .modalEdit {
+    background-color: var(--post);
+    margin: auto;
+    padding: 2%;
+    border-radius: 10px;
+    border: 1px solid var(--body);
+    width: 80%;
+    color: var(--fontColor);
+}
+
+.btnDeletConfirm, .btnDeletCancel,.btnEditConfirm, .btnEditCancel{
+    background-color: var(--button);
+    color: var(--fontColor);
+    width: auto;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.noLikes{
+    filter: grayscale(1);
+}
+
+.editTextarea{
+    width: 80%;
+    resize: none;     
+}
+
+.imgAllPosts{
+    height: auto;
+    width: 40%;
+}
+
+.imgAllPosts[src="null"]{
+    display: none;
+}
+
+@media (min-device-width:900px){
+    .containerPosts{
+        width: 60%;
+        height: auto;
+        margin: 2% auto;
+    }
+
+    .imgUser{
+        height: 20%;
+        width: auto;
+    }
+
+    .userName{
+        width: auto;
+        margin-left: auto;
+    }
+
+    .postLikes{
+        height: 10%;
+        width: 10%;
+        margin: auto;
+        text-align: end;
+    }
+
+    .postMessage{
+        margin-bottom: 2%;
+    }
+
+    .btnPopLike{
+        height: 20%;
+        width: auto;
+    }
+
+    .popLike{
+        height: 100%;
+        width: auto;
+    }
+
+    .btnDelet, .btnEdit{
+        height: 100%;
+        width: 25%;
+    }
+
+    .modalDelet, .modalEdit{
+        width: 50%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .descDel{
+        width: 100%;
+        text-align: center;
+    }
+
+    .btnDeletConfirm, .btnDeletCancel, .btnEditConfirm, .btnEditCancel{
+        margin: 5% 2% 2% 2%;
+    }
+
+    .editTextarea{
+        margin: 3% 5%;
+        width: 100%;
+        border-radius: 5px;
+        padding: 1%;
+    }
+}

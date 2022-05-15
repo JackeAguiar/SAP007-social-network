@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.main{
-    width: 100%; 
+
+.main {
+    width: 100%;
     height: 100%;
     background-color: #131415;
     color: white;
-    display: flex;
-    flex-direction: column;
     text-align: center;
-    font-family: 'Cinzel Decorative';
+    font-family: 'Cinzel Decorative',  Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     letter-spacing: 1px;
 }
 
-.containerMain{
+.containerMain {
     display: grid;
     height: 100%;
 }
@@ -28,7 +27,7 @@
     margin: 5% 0% 15% 0%;
 }
 
-.containerAbout{
+.containerAbout {
     display: inline-flex;
     margin: 0% 2% 0% 2%;
 }
@@ -38,16 +37,16 @@
     text-align: left;
     font-size: 90%;
     padding: 0% 5%;
-    font-family:'Alice'
+    font-family: 'Alice',  Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.carrosel{
+.carrosel {
     width: 170px;
     height: 250px;
     outline: solid white 1px;
     box-shadow: 5px 5px 15px gray;
     border-radius: 5px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .carrosel ul {
@@ -62,35 +61,66 @@
     animation: slide 10s infinite ease-in-out;
 }
 
-@keyframes slide{
-    0% {left:0px}
-    15%{left: 0px}
-    20%{left: -170px}
-    35%{left: -170px}
-    40%{left: -340px}
-    55%{left: -340px}
-    60%{left: -510px}
-    75%{left: -510px}
-    80%{left: -680px}
-    95%{left: -680px}
-    100%{left: 0px}
+@keyframes slide {
+    0% {
+        left: 0px
+    }
+
+    15% {
+        left: 0px
+    }
+
+    20% {
+        left: -170px
+    }
+
+    35% {
+        left: -170px
+    }
+
+    40% {
+        left: -340px
+    }
+
+    55% {
+        left: -340px
+    }
+
+    60% {
+        left: -510px
+    }
+
+    75% {
+        left: -510px
+    }
+
+    80% {
+        left: -680px
+    }
+
+    95% {
+        left: -680px
+    }
+
+    100% {
+        left: 0px
+    }
 }
 
-.carrosel img{
+.carrosel img {
     width: 170px;
     height: 250px;
 }
 
-.btn{
+.btn {
     width: 100%;
 }
 
-.enter{
+.enter {
     align-self: center;
     display: flex;
     width: 100%;
     height: 100%;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -101,23 +131,23 @@
 .button-login,
 .button-register-cas,
 .button-register-lo,
-.btnFPassword{
+.btnFPassword {
     width: 50%;
     height: 50px;
     background-color: #CC2B26;
-    font-family: 'Alice' ;
+    font-family: 'Alice',  Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 100%;
     color: white;
     text-shadow: -1px 1px 0 #000,
-                  1px 1px 0 #000,
-                  1px -1px 0 #000,
-                 -1px -1px 0 #000;
+        1px 1px 0 #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
     border-radius: 20px;
     margin-bottom: 3%;
 }
 
-@media(max-device-width:380px){
-    .containerAbout{
+@media(max-device-width:380px) {
+    .containerAbout {
         margin-bottom: 8%;
     }
 }
@@ -131,37 +161,69 @@
     .containerAbout p {
         font-size: 120%;
     }
-    
-    .carrosel{
+
+    .carrosel {
         width: 250px;
         height: 330px;
     }
 
-    .carrosel ul{
+    .carrosel ul {
         width: 1250px;
         height: 330px;
     }
 
-    @keyframes slide{
-        0% {left:0px}
-        15%{left: 0px}
-        20%{left: -250px}
-        35%{left: -250px}
-        40%{left: -500px}
-        55%{left: -500px}
-        60%{left: -750px}
-        75%{left: -750px}
-        80%{left: -1000px}
-        95%{left: -1000px}
-        100%{left: 0px}
+    @keyframes slide {
+        0% {
+            left: 0px
+        }
+
+        15% {
+            left: 0px
+        }
+
+        20% {
+            left: -250px
+        }
+
+        35% {
+            left: -250px
+        }
+
+        40% {
+            left: -500px
+        }
+
+        55% {
+            left: -500px
+        }
+
+        60% {
+            left: -750px
+        }
+
+        75% {
+            left: -750px
+        }
+
+        80% {
+            left: -1000px
+        }
+
+        95% {
+            left: -1000px
+        }
+
+        100% {
+            left: 0px
+        }
     }
 
-    .carrosel img{
+    .carrosel img {
         width: 250px;
         height: 330px;
     }
 
-    .enter button{
+    .enter button {
         font-size: 120%;
         height: 55px;
         width: 40%;
@@ -169,18 +231,18 @@
 }
 
 @media (min-device-width:570px) {
-    .containerMain{
+    .containerMain {
         grid-template-columns: 60% 40%;
-        grid-template-rows: 20% 50% 30%  ;
+        grid-template-rows: 20% 50% 30%;
     }
 
-    .containerMain h1{
+    .containerMain h1 {
         grid-column: span 3;
         grid-row: 1/2;
         margin-top: 2%;
     }
 
-    .containerAbout{
+    .containerAbout {
         display: grid;
         grid-template-columns: 60% 40%;
         grid-template-rows: 50% 50%;
@@ -197,7 +259,7 @@
         font-size: 100%;
     }
 
-    .carrosel{
+    .carrosel {
         grid-column: 1/2;
         grid-row: span 3;
         align-self: flex-start;
@@ -206,26 +268,58 @@
         margin: auto;
     }
 
-    .carrosel ul{
+    .carrosel ul {
         width: 1600px;
         height: 55vh;
     }
 
-    @keyframes slide{
-        0% {left:0px}
-        15%{left: 0px}
-        20%{left: -320px}
-        35%{left: -320px}
-        40%{left: -640px}
-        55%{left: -640px}
-        60%{left: -960px}
-        75%{left: -960px}
-        80%{left: -1280px}
-        95%{left: -1280px}
-        100%{left: 0px}
+    @keyframes slide {
+        0% {
+            left: 0px
+        }
+
+        15% {
+            left: 0px
+        }
+
+        20% {
+            left: -320px
+        }
+
+        35% {
+            left: -320px
+        }
+
+        40% {
+            left: -640px
+        }
+
+        55% {
+            left: -640px
+        }
+
+        60% {
+            left: -960px
+        }
+
+        75% {
+            left: -960px
+        }
+
+        80% {
+            left: -1280px
+        }
+
+        95% {
+            left: -1280px
+        }
+
+        100% {
+            left: 0px
+        }
     }
 
-    .carrosel img{
+    .carrosel img {
         width: 320px;
         height: 55vh;
     }
@@ -235,39 +329,70 @@
         grid-row: 3/4;
     }
 
-    .enter button{
+    .enter button {
         font-size: 100%;
     }
 }
 
-@media (min-device-width:1500px){
-    .carrosel{
+@media (min-device-width:1500px) {
+    .carrosel {
         width: 420px;
-        
+
     }
 
-    .carrosel ul{
+    .carrosel ul {
         width: 2100px;
         height: 55vh;
     }
 
-    @keyframes slide{
-        0% {left:0px}
-        15%{left: 0px}
-        20%{left: -420px}
-        35%{left: -420px}
-        40%{left: -840px}
-        55%{left: -840px}
-        60%{left: -1260px}
-        75%{left: -1260px}
-        80%{left: -1680px}
-        95%{left: -1680px}
-        100%{left: 0px}
+    @keyframes slide {
+        0% {
+            left: 0px
+        }
+
+        15% {
+            left: 0px
+        }
+
+        20% {
+            left: -420px
+        }
+
+        35% {
+            left: -420px
+        }
+
+        40% {
+            left: -840px
+        }
+
+        55% {
+            left: -840px
+        }
+
+        60% {
+            left: -1260px
+        }
+
+        75% {
+            left: -1260px
+        }
+
+        80% {
+            left: -1680px
+        }
+
+        95% {
+            left: -1680px
+        }
+
+        100% {
+            left: 0px
+        }
     }
 
-    .carrosel img{
+    .carrosel img {
         width: 420px;
         height: 55vh;
     }
 }
-    
