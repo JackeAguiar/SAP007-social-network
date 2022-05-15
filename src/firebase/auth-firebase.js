@@ -13,16 +13,15 @@ import {
 export const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-export function userRegister(email, password, displayName) {
+export function userRegister(displayName, email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       updateProfile(auth.currentUser, {
         displayName,
+      }).then(() => {
+        const user = userCredential.user;
+        return user;
       })
-        .then(() => {
-          const user = userCredential.user;
-          return user;
-        })
         .catch((error) => error);
     });
 }

@@ -25,9 +25,9 @@ export const addPosts = async (message, theme, subirImgPost) => {
       theme,
       imgPosts: subirImgPost,
     });
-    return console.log('Document written with ID: ', docRef);
+    return docRef;
   } catch (e) {
-    return console.error('Error adding document: ', e);
+    return e;
   }
 };
 

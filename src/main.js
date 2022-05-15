@@ -24,8 +24,8 @@ const init = () => {
       main.appendChild(forgotPassword());
       break;
     case '#feed':
-      logged((logged) => {
-        if (logged) {
+      logged((log) => {
+        if (log) {
           main.appendChild(feed());
         } else {
           window.location.hash = '#home';
@@ -33,8 +33,8 @@ const init = () => {
       });
       break;
     case '#postMobile':
-      logged((logged) => {
-        if (logged) {
+      logged((log) => {
+        if (log) {
           main.appendChild(postMobile());
         } else {
           window.location.hash = '#home';
