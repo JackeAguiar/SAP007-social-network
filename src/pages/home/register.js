@@ -34,6 +34,8 @@ export default () => {
   const checkPassword = container.querySelector('#checkPassword');
   const imgVisi = container.querySelector('.seePassword');
 
+  const btnRegister = container.querySelector('#buttonRegister');
+
   // função de ver e desver senha
   imgVisi.addEventListener('click', (e) => {
     e.preventDefault();
@@ -45,10 +47,10 @@ export default () => {
   });
 
   // função de registrar o usuario
-  container.addEventListener('submit', (e) => {
+  btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
     if (password.value === checkPassword.value) {
-      userRegister(email.value, password.value, user.value)
+      userRegister(user.value, email.value, password.value)
         .then(() => {
           window.location.hash = '#feed';
           window.location.reload();

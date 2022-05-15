@@ -125,10 +125,6 @@ main {
     justify-self: end;
 }
 
-.formFPassword button {
-    margin: 0% auto;
-}
-
 button {
     height: 100%;
     width: 100%;
@@ -136,6 +132,11 @@ button {
     color: white;
     cursor: pointer;
 }
+
+.formFPassword button {
+    margin: 0% auto;
+}
+
 
 .button-register-lo {
     height: 80%;

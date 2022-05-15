@@ -3,7 +3,6 @@ import {
   showPosts,
 } from '../../firebase/firestore.js';
 import {
-  auth,
   notLogged,
 } from '../../firebase/auth-firebase.js';
 import {
@@ -73,12 +72,6 @@ export default () => {
   }
 
   btnMobile.addEventListener('click', toggleMenu);
-
-  const user = auth.currentUser;
-  const name = user.displayName;
-  const userPhoto = user.photoURL;
-  console.log(name);
-  console.log(userPhoto);
 
   // função de imagem input file
   imgAddFile.addEventListener('click', () => {

@@ -13,7 +13,7 @@ export function getAllPosts(post) {
   const container = document.createElement('li');
   container.classList.add('containerPosts');
   const userPost = post.user === auth.currentUser.displayName;
-  
+
   const templateAllPosts = `
               
             <img class="imgUser" src="images/img/add.png">    
@@ -51,19 +51,19 @@ export function getAllPosts(post) {
             </div>
             `;
 
-            container.innerHTML = templateAllPosts;
-            
-            const btnPopLike = container.querySelector('.btnPopLike');
-            const btnEdit = container.querySelector('.btnEdit');
-            const btnEditConfirm = container.querySelector('.btnEditConfirm');
-            const btnEditCancel = container.querySelector('.btnEditCancel');
-            const btnDeletCancel = container.querySelector('.btnDeletCancel');
-            const btnDeletConfirm = container.querySelector('.btnDeletConfirm');
-            
-            const textArea = container.querySelector('.editTextarea');
-            const modal = container.querySelector('.modalEditBack');
-            
-            const deletModal = container.querySelector('.modalDeletBack');
+  container.innerHTML = templateAllPosts;
+
+  const btnPopLike = container.querySelector('.btnPopLike');
+  const btnEdit = container.querySelector('.btnEdit');
+  const btnEditConfirm = container.querySelector('.btnEditConfirm');
+  const btnEditCancel = container.querySelector('.btnEditCancel');
+  const btnDeletCancel = container.querySelector('.btnDeletCancel');
+  const btnDeletConfirm = container.querySelector('.btnDeletConfirm');
+
+  const textArea = container.querySelector('.editTextarea');
+  const modal = container.querySelector('.modalEditBack');
+
+  const deletModal = container.querySelector('.modalDeletBack');
 
   const contLikes = container.querySelector('.postLikes');
   const userLikes = post.likes;
@@ -132,7 +132,5 @@ export function getAllPosts(post) {
         });
     });
   }
-
-
   return container;
 }

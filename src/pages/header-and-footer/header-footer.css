@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');/*eslint-disable-line*/
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');/*eslint-disable-line*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap'); /* eslint-disable-line*/
 
 * {
     margin: 0;
@@ -22,6 +22,10 @@ header {
     padding: 1%;
     width: 100%;
     background-color: #313131;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: 100%;
 }
 
 header img {
@@ -39,7 +43,6 @@ header li{
 
 .linkHeader {
     font-size: 30px;
-    font-family: 'Cinzel Decorative';
     align-self: center;
     justify-self: center;
 }
@@ -50,7 +53,6 @@ header .btnMobile{
     display: flex;
     font-size: 1rem;
     border: none;
-    background: none;
     align-items: center;
     justify-content: center;
 }
@@ -73,13 +75,6 @@ header .hamburguer{
     display: none;
 }
 
-/*Corrigir chamada*/
-nav.active .menuFeed{
-    visibility: visible;
-    overflow-y: auto;
-    height: calc(100vh - 15vh);
-}
-
 .menuFeed{
     display: block;
     position: absolute;
@@ -94,23 +89,24 @@ nav.active .menuFeed{
     overflow-y: hidden;
 }
 
-.menuFeed a{
-    padding: 1rem 0;
-    margin: 0 1rem;
-}
-
-header {
-    display: grid;
-    height: 100%;
-    grid-template-columns: 20% auto 20%;
-    grid-template-rows: 100%;
+/*Corrigir chamada*/
+nav.active .menuFeed{
+    visibility: visible;
+    overflow-y: auto;
+    height: calc(100vh - 15vh);
 }
 
 header h1, a {
     color: white;
     text-decoration: none;
-    font-family: 'Nunito';
+    font-family: 'Nunito', Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.menuFeed a{
+    padding: 1rem 0;
+    margin: 0 1rem;
+}
+
 
 .footer {
     margin: 0;
@@ -126,7 +122,7 @@ header h1, a {
     z-index:5;
     padding: 1vh;
     font-size: 0.9rem;
-    font-family: 'Nunito';
+    font-family: 'Nunito', Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .footer,
