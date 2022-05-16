@@ -28,7 +28,7 @@ export function getAllPosts(post) {
             <img class="popLike" src="images/img/popTimeLogo.png">
             </div>
             </button>
-            
+            </div>
             ${userPost ? `
             <div class="postUser">
             <button class="btnEdit"><img class="imgEdit" src="images/img/edit.png"></button>

@@ -13,7 +13,7 @@ export default () => {
   <label for="e-mail">E-mail:</label>
   <input type"email" id="emailRegister" onchance="emailBlockingButton()" class="inputs-log" placeholder="exemplo@gmail.com" required></input>
   <label for="senha">Senha:</label>
-  <input type="password" id="password" class="inputs-log" placeholder="Digite uma senha de 6 a 8 dígitos" required></input>
+  <input type="password" id="password" class="inputs-log"  maxlength = "8" placeholder="Digite uma senha de 6 a 8 dígitos" required></input>
   <img class="seePassword" src="images/img/seePassword.png">
   <label for="check-Senha">Confirmar senha:</label>
   <input type="password" id="checkPassword" class="inputs-log" placeholder="Digite novamente sua senha" required></input>
