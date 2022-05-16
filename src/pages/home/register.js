@@ -53,7 +53,6 @@ export default () => {
       userRegister(user.value, email.value, password.value)
         .then(() => {
           window.location.hash = '#feed';
-          window.location.reload();
         })
         .catch((error) => {
           const errorCode = error.code;
