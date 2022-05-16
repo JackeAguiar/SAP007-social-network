@@ -150,6 +150,11 @@ input {
         align-items: center;
     }
 
+    .comoFoi{
+        margin-top: 2%;
+        margin-left: 2%;
+    }
+
     .postDesktop {
         display: inline-flex;
         width: 60%;
@@ -171,6 +176,10 @@ input {
     .postDesktop p {
         align-self: flex-end;
         margin-bottom: 2%;
+    }
+
+    .inputPost{
+        margin: 0;
     }
 
     .btnClean {
