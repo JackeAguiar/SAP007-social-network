@@ -12,9 +12,6 @@ import {
 import {
   subirFileStore,
 } from '../../firebase/storage.js';
-import {
-  doc,
-} from '../../firebase/exports.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -25,10 +22,10 @@ export default () => {
   const templateFeed = `
 
          <section class="postDesktop">
-          <div class="containerImgUserDesk">
-            <img class="imgUser" src="images/img/add.png">
-          </div>
-          <p>Como foi a sessão cinema?</p>
+          
+            <img class="imgUser" src="images/img/Usuaria.png">
+        
+          <p class="comoFoi">Como foi a sessão cinema?</p>
           <button class="btnClean">X</button>
           <textarea id="inputPost" class="inputPost" maxlength = "1036"></textarea>
           <p id="error" class="error"></p>
@@ -52,12 +49,6 @@ export default () => {
          </ul>
       `;
   container.innerHTML = templateFeed;
-
-  const user = auth.currentUser;
-  const name = user.displayName;
-  const userPhoto = user.photoURL;
-  console.log(name);
-  console.log(userPhoto);
 
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');

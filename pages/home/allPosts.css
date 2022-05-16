@@ -22,8 +22,8 @@
 }
 
 .imgUser{
-    height: 10%;
-    width: 15%;
+    height: 40px;
+    width: auto;
 }
 
 .userName{
@@ -71,16 +71,20 @@
     text-align: start;
 }
 
+.likes{
+    display: inline-flex;
+    margin-left: auto;
+    justify-content: flex-end;
+
+}
+
 .postLikes{
-    justify-self: end;
     margin: auto;
-    text-align: center;
 }
 
 .btnPopLike{
     background: transparent;
-    width: 10%;
-    margin: auto;
+    width: 50%;
 }
 
 .popLike{
@@ -89,13 +93,16 @@
 }
 
 .postUser{
+    width: 100%;
     margin-left: auto;
     display: flex;
-    gap: 10%;
+    gap: 1%;
+    height: auto;
 }
 
 .btnDelet, .btnEdit{
-    width: 20%;
+    margin:0;
+    width: 5%;
     height: auto;
     background-color: transparent;
 }
@@ -104,13 +111,9 @@
     margin-left: auto;
 }
 
-.btnDelet{
-    margin-right: 3%;
-}
-
 .imgDelet, .imgEdit{
-    width: 100%;
-    height: auto;
+    height: 20px;
+    width: auto;
 }
 
 .modalDeletBack, .modalEditBack{
@@ -162,6 +165,10 @@
     display: none;
 }
 
+.imgPostMobile{
+    margin: 2%;
+}
+
 @media (min-device-width:900px){
 
     .newPost{
@@ -179,8 +186,8 @@
     }
 
     .imgUser{
-        height: 20%;
         width: auto;
+        height: 55px;
     }
 
     .userName{
@@ -191,27 +198,35 @@
     .postLikes{
         height: 10%;
         width: 10%;
-        margin: auto;
+        margin: 5% 5% 5% auto;
         text-align: end;
     }
 
     .postMessage{
         margin-bottom: 2%;
+        height: auto;
     }
 
     .btnPopLike{
-        height: 20%;
+        height: 100%;
         width: auto;
+        margin: 0% 2%;
     }
 
     .popLike{
         height: 100%;
         width: auto;
+        max-height: 50px;
     }
 
     .btnDelet, .btnEdit{
         height: 100%;
-        width: 25%;
+        width: auto;
+        margin: 0% 1%;
+    }
+
+    .btnEdit{
+        margin-left: auto;
     }
 
     .modalDelet, .modalEdit{
@@ -237,5 +252,28 @@
         width: 100%;
         border-radius: 5px;
         padding: 1%;
+    }
+
+    .likes{
+        width: 50%;
+        display: flex;
+        margin-left: auto;
+        max-height: 70px;
+    }
+
+    .postUser{
+        width: 100%;
+        margin-top: 1%;
+        display: inline-flex;
+        justify-content: end;
+        align-items: flex-end;
+        gap: 1%;
+    }
+    
+    .imgEdit, .imgDelet{
+        height: 100%;
+        width: auto;
+        margin: 0;
+        max-height: 25px;
     }
 }

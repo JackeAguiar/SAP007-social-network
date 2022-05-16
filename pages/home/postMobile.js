@@ -1,6 +1,9 @@
 import {
   addPosts,
 } from '../../firebase/firestore.js';
+import {
+  subirFileStore,
+} from '../../firebase/storage.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -16,9 +19,9 @@ export default () => {
     <label class="topic" for="resenha">Resenha</label>
     </section>
     <section class="menuPostMobile">
-    <div class="containerImgUser">
-    <img class="imgUser" src="images/img/add.png">
-    </div>
+    
+    <img class="imgUser imgPostMobile" src="images/img/Usuaria.png">
+    
     <p>Como foi a sessão cinema?</p>
     <a href="#feed" class="btnFeed">X</a>
     <textarea id="inputPost" class="inputPost"></textarea>
@@ -50,8 +53,10 @@ export default () => {
   btnPost.addEventListener('click', async (e) => {
     e.preventDefault();
     const valueMessage = message.value;
+    const imgPosts = container.querySelector('.inputFile').files[0];
     const errorMessage = 'É necessário preencher o campo de mensagem.';
     const errorTheme = 'É necessário adicionar um tema de postagem.';
+    const errorCarac = 'A mensagem é muito grande';
     const arrayTheme = [];
 
     if (themesCri.checked === true) {
@@ -73,8 +78,13 @@ export default () => {
     } else if
     ((themesCri.checked === false && themesOn.checked === false && themesRes.checked === false)) {
       errorPost.innerHTML = errorTheme;
+    } else if (valueMessage.length > 1036) {
+      errorPost.innerHTML = errorCarac;
+    } else if (imgPosts === null) {
+      await addPosts(valueMessage, theme, '');
     } else {
-      await addPosts(valueMessage, theme)
+      const subirImgPost = await subirFileStore(imgPosts, 'imgPosts');
+      await addPosts(valueMessage, theme, subirImgPost)
         .then(() => {
           window.location.hash = '#feed';
         });
