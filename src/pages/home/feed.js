@@ -12,9 +12,6 @@ import {
 import {
   subirFileStore,
 } from '../../firebase/storage.js';
-import {
-  doc,
-} from '../../firebase/exports.js';
 
 export default () => {
   const container = document.createElement('div');
