@@ -59,3 +59,5 @@ Com base nas respostas pudemos observar os interesses dos usuários em potência
 <img src="src/images/img/fluxogramaLogin%20(1).png" width="100%" height="auto"> Fluxograma para logar na página </p><br>
 
 
+## Navegando pelo site
+<img src="src/images/img/navegando.gif" width="100%" height="auto"> Fluxograma para logar na página </p><br>
