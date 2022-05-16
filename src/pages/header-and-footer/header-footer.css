@@ -144,6 +144,16 @@ a :visited {
         height: 100%;
         align-self: flex-start;
     }
+    header .hamburguer{
+        width: 40px;
+        border-top: 2px solid white;
+    }
+    
+
+    .hamburguer::after, .hamburguer::before{ 
+        margin-top: 5px;
+        width: 40px;
+    }
 
     header button{
         display: none;
@@ -153,4 +163,5 @@ a :visited {
     footer {
         font-size: 1vmax;
     }
+
 }

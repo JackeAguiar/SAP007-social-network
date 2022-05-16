@@ -181,6 +181,7 @@
     .imgUser{
         height: 20%;
         width: auto;
+        max-height: 55px;
     }
 
     .userName{
@@ -191,27 +192,35 @@
     .postLikes{
         height: 10%;
         width: 10%;
-        margin: auto;
+        margin: 5% 5% 5% auto;
         text-align: end;
     }
 
     .postMessage{
         margin-bottom: 2%;
+        height: auto;
     }
 
     .btnPopLike{
-        height: 20%;
+        height: 100%;
         width: auto;
+        margin: 0% 2%;
     }
 
     .popLike{
         height: 100%;
         width: auto;
+        max-height: 50px;
     }
 
     .btnDelet, .btnEdit{
         height: 100%;
-        width: 25%;
+        width: auto;
+        margin: 0% 1%;
+    }
+
+    .btnEdit{
+        margin-left: auto;
     }
 
     .modalDelet, .modalEdit{
@@ -237,5 +246,28 @@
         width: 100%;
         border-radius: 5px;
         padding: 1%;
+    }
+
+    .likes{
+        width: 50%;
+        display: flex;
+        margin-left: auto;
+        max-height: 70px;
+    }
+
+    .postUser{
+        width: 100%;
+        margin-top: 1%;
+        display: inline-flex;
+        justify-content: end;
+        align-items: flex-end;
+        gap: 1%;
+    }
+    
+    .imgEdit, .imgDelet{
+        height: 100%;
+        width: auto;
+        margin: 0;
+        max-height: 25px;
     }
 }

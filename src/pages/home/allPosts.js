@@ -16,15 +16,17 @@ export function getAllPosts(post) {
 
   const templateAllPosts = `
               
-            <img class="imgUser" src="images/img/add.png">    
+            <img class="imgUser" src="images/img/Usuaria.png">    
             <p class="userName">${post.user}</p>
             <p class="postDate">${post.data}</p>
             <div class="break"> <p class="postTheme">${post.theme}</p></div>
             <p class="postMessage">${post.message}</p>
             <img class="imgAllPosts" src="${post.imgPosts}">
+            <div class="likes">
             <p class="postLikes" >${post.likes.length}</p>
             <button class="btnPopLike">
             <img class="popLike" src="images/img/popTimeLogo.png">
+            </div>
             </button>
             
             ${userPost ? `

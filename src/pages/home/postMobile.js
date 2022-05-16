@@ -19,9 +19,9 @@ export default () => {
     <label class="topic" for="resenha">Resenha</label>
     </section>
     <section class="menuPostMobile">
-    <div class="containerImgUser">
+    
     <img class="imgUser" src="images/img/add.png">
-    </div>
+    
     <p>Como foi a sessão cinema?</p>
     <a href="#feed" class="btnFeed">X</a>
     <textarea id="inputPost" class="inputPost"></textarea>
