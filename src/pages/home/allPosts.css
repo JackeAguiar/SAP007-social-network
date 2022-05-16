@@ -22,8 +22,8 @@
 }
 
 .imgUser{
-    height: 10%;
-    width: 15%;
+    height: 40px;
+    width: auto;
 }
 
 .userName{
@@ -102,17 +102,13 @@
 
 .btnDelet, .btnEdit{
     margin:0;
-    width: 10%;
+    width: 5%;
     height: auto;
     background-color: transparent;
 }
 
 .btnEdit {
     margin-left: auto;
-}
-
-.btnDelet{
-    margin-right: 3%;
 }
 
 .imgDelet, .imgEdit{
@@ -169,6 +165,10 @@
     display: none;
 }
 
+.imgPostMobile{
+    margin: 2%;
+}
+
 @media (min-device-width:900px){
 
     .newPost{
@@ -186,9 +186,8 @@
     }
 
     .imgUser{
-        height: 20%;
         width: auto;
-        max-height: 55px;
+        height: 55px;
     }
 
     .userName{

@@ -50,12 +50,6 @@ export default () => {
       `;
   container.innerHTML = templateFeed;
 
-  const user = auth.currentUser;
-  // const name = user.displayName;
-  // const userPhoto = user.photoURL;
-  // console.log(name);
-  // console.log(userPhoto);
-
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');
   const newPost = container.querySelector('.newPost');

@@ -20,7 +20,7 @@ export default () => {
     </section>
     <section class="menuPostMobile">
     
-    <img class="imgUser" src="images/img/add.png">
+    <img class="imgUser imgPostMobile" src="images/img/Usuaria.png">
     
     <p>Como foi a sessão cinema?</p>
     <a href="#feed" class="btnFeed">X</a>
@@ -35,7 +35,6 @@ export default () => {
 
   const imgAddFile = container.querySelector('.addFile');
   const inputFile = container.querySelector('.inputFile');
-  
 
   const btnPost = container.querySelector('.btnAddPost');
 
