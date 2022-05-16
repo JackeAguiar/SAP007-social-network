@@ -22,11 +22,12 @@ export function getAllPosts(post) {
             <div class="break"> <p class="postTheme">${post.theme}</p></div>
             <p class="postMessage">${post.message}</p>
             <img class="imgAllPosts" src="${post.imgPosts}">
+            <div class="likes">
             <p class="postLikes" >${post.likes.length}</p>
             <button class="btnPopLike">
             <img class="popLike" src="images/img/popTimeLogo.png">
             </button>
-            
+            </div>
             ${userPost ? `
             <div class="postUser">
             <button class="btnEdit"><img class="imgEdit" src="images/img/edit.png"></button>
