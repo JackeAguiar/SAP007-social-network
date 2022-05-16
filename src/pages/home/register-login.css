@@ -128,18 +128,13 @@ main {
 button {
     height: 100%;
     width: 100%;
-    margin: 2% 0% 10% 0%;
+    margin: 0% 0% 10% 0%;
     color: white;
     cursor: pointer;
 }
 
 .formFPassword button {
     margin: 0% auto;
-}
-
-
-.button-register-lo {
-    height: 80%;
 }
 
 .formFPassword p,
@@ -167,6 +162,7 @@ button {
         align-self: center;
         justify-self: center;
     }
+    
 
     .formLogIn label {
         margin: 2% 100% 0% 2%;
@@ -176,4 +172,10 @@ button {
         width: 100%;
         text-align: left;
     }
+
+    .google{
+        margin-bottom: 4%;
+    }
+
+
 }
