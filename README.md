@@ -1,4 +1,5 @@
 # Pop Time
+<img src="src/images/img/popTimeLogo.png" >
 
 ## Índice
 
@@ -60,4 +61,4 @@ Com base nas respostas pudemos observar os interesses dos usuários em potência
 
 
 ## Navegando pelo site
-<img src="src/images/img/navegando.gif" width="100%" height="auto"> Fluxograma para logar na página </p><br>
+<img src="src/images/img/navegando.gif" width="100%" height="auto">Versão desktop</p><br>
